@@ -852,28 +852,34 @@ main:focus{outline:none}
 
   /* ═══ PINNED SCENES FIRST — creation order is refresh order ═══ */
 
-  gsap.timeline({ scrollTrigger:{ trigger:'#hero', start:'top top', end: pinOK ? '+=140%' : 'bottom top', scrub:.45, pin:pinOK, anticipatePin:1, refreshPriority:1 } })
-    .to('#hero .bg', { scale:1.5, yPercent:14, ease:'none' }, 0)
-    .to('.hero-c', { yPercent:-16, opacity:0, filter:'blur(7px)', ease:'power2.in' }, 0)
-    .to('.scroll-hint', { opacity:0, ease:'none' }, 0);
+  // The hero holds, then hands over. The copy used to start fading immediately
+  // and finish long before the pin released, leaving most of a screen with
+  // nothing readable on it.
+  gsap.timeline({ scrollTrigger:{ trigger:'#hero', start:'top top', end: pinOK ? '+=45%' : 'bottom top', scrub:.45, pin:pinOK, anticipatePin:1, refreshPriority:1 } })
+    .to('#hero .bg', { scale:1.5, yPercent:14, ease:'none', duration:1 }, 0)
+    .to('.scroll-hint', { opacity:0, ease:'none', duration:.25 }, 0)
+    .to('.hero-c', { yPercent:-16, opacity:0, filter:'blur(7px)', ease:'power2.in', duration:.5 }, .5);
 
   if (workPin) {
-    gsap.timeline({ scrollTrigger:{ trigger:'#work', start:'top top', end:'+=240%', scrub:.25, pin:true, anticipatePin:1, refreshPriority:1 } })
-      .from('.work-h', { opacity:0, y:24, duration:.5 }, 0)
-      .from('.appframe', { opacity:0, y:34, duration:.6, ease:'power2.out' }, .12);
-  } else {
-    gsap.from('.appframe', { opacity:0, y:26, duration:.7, ease:'power2.out',
-      scrollTrigger:{ trigger:'.appframe', start:'top 88%', once:true } });
+    // The pin only holds while the cases resolve. The entrance is a separate
+    // reveal that fires on approach — when it lived inside the scrubbed pin,
+    // whole screens of scrolling were spent watching the heading fade in.
+    ScrollTrigger.create({ trigger:'#work', start:'top top', end:'+=170%',
+      pin:true, anticipatePin:1, refreshPriority:1 });
   }
+  gsap.from('.work-h',   { opacity:0, y:24, duration:.7, ease:'power2.out',
+    scrollTrigger:{ trigger:'#work', start:'top 78%', once:true } });
+  gsap.from('.appframe', { opacity:0, y:30, duration:.8, ease:'power2.out',
+    scrollTrigger:{ trigger:'#work', start:'top 66%', once:true } });
 
   ScrollTrigger.create({
     trigger:'#work',
     start: workPin ? 'top top' : 'top 78%',
-    end:   workPin ? '+=240%'  : 'bottom 55%',
+    end:   workPin ? '+=170%'  : 'bottom 55%',
     scrub: workPin ? .25 : .5, refreshPriority:1,
     onUpdate(self){
       const cards = document.querySelectorAll('#cards .card');
-      const p = (self.progress - 0.30) / 0.60;
+      const p = (self.progress - 0.18) / 0.70;
       cards.forEach(function(c,i){
         const on = p > (i + .35) / cards.length;
         if (on !== (c.dataset.on === '1')) {
@@ -972,8 +978,12 @@ main:focus{outline:none}
   });
 
   gsap.utils.toArray('.rv').forEach(function(el){
+    // A caption is centred inside a full-height scene, so triggering on the
+    // caption itself meant it only appeared once you were most of the way
+    // through the scene — leaving a readable-nothing frame at every handover.
+    const scene = el.classList.contains('cap') ? el.closest('.scene') : null;
     gsap.to(el, { opacity:1, y:0, duration:.85, ease:'power3.out',
-      scrollTrigger:{ trigger:el, start:'top 86%', once:true } });
+      scrollTrigger:{ trigger: scene || el, start: scene ? 'top bottom' : 'top 92%', once:true } });
   });
 
   gsap.utils.toArray('.h2, .cap h2, .work-h h2').forEach(function(h){
