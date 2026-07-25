@@ -29,7 +29,7 @@
   --display:'Sora',ui-sans-serif,system-ui,sans-serif;
   --body:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
   --gutter:clamp(20px,5vw,88px);
-  --dsp:clamp(26px,3.6vw,50px);
+  --dsp:clamp(26px,3.6vw,58px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;overflow-x:hidden}
@@ -43,7 +43,7 @@ body:after{content:"";position:fixed;inset:0;z-index:120;pointer-events:none;opa
 
 .wrap{max-width:1320px;margin:0 auto;padding:0 var(--gutter)}
 h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-height:1.08}
-.eyebrow{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);line-height:1.4}
+.eyebrow{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#8FA3BF;line-height:1.4}
 .lede{color:#C3D0E1;font-size:clamp(17px,1.3vw,20px);line-height:1.7}
 .mute{color:var(--mist)}
 
@@ -60,7 +60,8 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 .hdr-nav a{color:#B9C8DB;transition:color .2s}
 .hdr-nav a:hover{color:#fff}
 .hdr-nav,.hdr .btn{opacity:0;pointer-events:none;transition:opacity .6s}
-.hdr.armed .hdr-nav,.hdr.armed .btn{opacity:1;pointer-events:auto}
+.hdr.cta-armed .btn,.hdr.armed .btn{opacity:1;pointer-events:auto}
+.hdr.armed .hdr-nav{opacity:1;pointer-events:auto}
 .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:14px;
   padding:12px 24px;border-radius:999px;background:var(--gold);color:var(--ink);white-space:nowrap;border:0;cursor:pointer;
   transition:transform .25s cubic-bezier(.22,.9,.24,1),box-shadow .25s,background .25s}
@@ -77,18 +78,19 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
   -webkit-mask-image:linear-gradient(180deg,transparent 2%,#000 20%,#000 80%,transparent 98%);
   mask-image:linear-gradient(180deg,transparent 2%,#000 20%,#000 80%,transparent 98%)}
 .vig{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 45%,transparent 20%,rgba(6,15,30,.5) 62%,var(--ink) 100%)}
+.unify{position:absolute;inset:0;background:#0B1F3A;mix-blend-mode:color;opacity:.3;pointer-events:none}
 #hero:before,#hero:after,#chain:before,#chain:after,#fracture:before,#fracture:after{
   content:"";position:absolute;left:0;right:0;height:20vh;z-index:2;pointer-events:none}
 #hero:before,#chain:before,#fracture:before{top:0;background:linear-gradient(180deg,var(--ink),transparent)}
 #hero:after,#chain:after,#fracture:after{bottom:0;background:linear-gradient(0deg,var(--ink),transparent)}
 
-#hero .bg{background-image:url('assets/hero-line.jpg');filter:brightness(.84)}
+#hero .bg{background-image:url('assets/hero-line.jpg');filter:saturate(.78) contrast(1.05) brightness(.84)}
 .hero-c{position:relative;text-align:center;padding:0 var(--gutter);z-index:3}
 .hero-c:before{content:"";position:absolute;inset:-12% -16%;z-index:-1;
   background:radial-gradient(58% 50% at 50% 52%,rgba(6,15,30,.9) 0%,rgba(6,15,30,.7) 52%,transparent 78%)}
 .hero-eyebrow{display:block;margin-bottom:20px}
 .hero-mark{width:clamp(60px,6.4vw,84px);margin:0 auto clamp(24px,3.4vh,38px)}
-.hero-h{font-size:clamp(38px,6.6vw,92px);line-height:1.02;letter-spacing:-.038em}
+.hero-h{font-size:clamp(38px,6.6vw,104px);line-height:1.02;letter-spacing:-.038em;text-wrap:balance}
 .hero-h .w{display:inline-block;vertical-align:bottom}
 .js .hero-h .w{overflow:hidden}
 .hero-h .w>span{display:inline-block}
@@ -101,7 +103,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 @keyframes drop{0%,100%{opacity:.25;transform:scaleY(.5);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
 
 .cap{position:relative;z-index:4;text-align:center;padding:0 var(--gutter);max-width:1180px}
-.cap h2{line-height:1.08}
+.cap h2{line-height:1.08;text-wrap:balance}
 .cap p{margin-top:22px;color:#AFC0D6;font-size:clamp(16px,1.25vw,19px);max-width:54ch;margin-left:auto;margin-right:auto}
 .cap .eyebrow{margin-bottom:20px;display:block}
 #chain .layer{place-items:end start}
@@ -109,19 +111,31 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 #chain .cap p{margin-left:0;max-width:40ch}
 #chain .cap h2{font-size:calc(var(--dsp)*1.16)}
 #fracture .cap h2{font-size:calc(var(--dsp)*1.36);letter-spacing:-.04em;line-height:1.04}
+#fracture .crack{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
 #fracture .cap{max-width:1240px}
 .work-h h2{font-size:calc(var(--dsp)*1.16)}
 #intact .cap h2{font-size:calc(var(--dsp)*1.52);line-height:1.02}
 .h2{font-size:calc(var(--dsp)*1.08)}
 
-#chain .bg{background-image:url('assets/street.jpg')}
-#fracture .bg{background-image:url('assets/fracture.jpg');filter:brightness(1.12) contrast(1.4) saturate(.5)}
-#fracture .vig{background:radial-gradient(72% 36% at 56% 44%,rgba(150,26,26,.3) 0%,transparent 50%),
-  radial-gradient(140% 112% at 50% 46%,transparent 50%,rgba(6,15,30,.42) 80%,var(--ink) 100%)}
+#chain .bg{background-image:url('assets/street.jpg');filter:saturate(.78) contrast(1.05) brightness(.88)}
+#fracture .bg{background-image:url('assets/fracture.jpg');filter:saturate(.6) contrast(1.38) brightness(1.1)}
+#fracture .vig{background:radial-gradient(140% 112% at 50% 46%,transparent 50%,rgba(6,15,30,.42) 80%,var(--ink) 100%)}
 
 /* ── chapter three: the product ── */
 #work{background:var(--ink)}
-.work-grid{position:relative;z-index:4;width:min(880px,100%);margin:0 auto;padding:0 var(--gutter)}
+.work-grid{position:relative;z-index:4;width:min(1000px,100%);margin:0 auto;padding:0 var(--gutter)}
+/* the thread drops into the product: a 1px gold segment drawing down to the frame */
+.work-thread{position:relative;width:1px;height:56px;margin:-4px auto 12px;transform-origin:top;
+  background:linear-gradient(180deg,transparent 0,var(--gold) 55%,var(--gold));transform:scaleY(0);z-index:3}
+/* the screen glows like the only lit thing in the room */
+.appframe:before{content:"";position:absolute;inset:-16% -12%;z-index:-1;pointer-events:none;
+  background:radial-gradient(58% 62% at 50% 40%,rgba(201,162,39,.13) 0%,rgba(201,162,39,.05) 45%,transparent 72%)}
+/* zero-state payoff */
+.af-zero{position:absolute;inset:48px 0 0;display:grid;place-items:center;z-index:5;opacity:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(11,31,58,.88),rgba(11,31,58,.95))}
+.af-zero div{text-align:center;padding:0 24px}
+.af-zero b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(20px,1.9vw,28px);color:#fff;letter-spacing:-.02em}
+.af-zero span{display:block;margin-top:10px;font-size:14.5px;color:#AFC0D6}
 .work-h{text-align:center;margin-bottom:clamp(26px,4vh,44px)}
 .work-h .cap-note{margin-top:14px;font-size:13px;color:var(--mist)}
 .appframe{position:relative;border-radius:16px;background:rgba(11,31,58,.55);backdrop-filter:blur(8px);
@@ -154,6 +168,15 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 .card.done .st{color:var(--gold)}
 .card.done .t{color:#fff}
 @media(max-width:820px){.appframe{grid-template-columns:1fr;grid-template-areas:"bar" "body"}.af-rail{display:none}}
+@media(min-width:821px) and (max-height:999px){
+  .pinhead .lede{display:none}
+}
+@media(min-width:821px) and (max-height:960px){
+  .work-h{margin-bottom:18px}
+  .work-h .cap-note{margin-top:10px}
+  #cards .card{padding:13px 18px}
+  .cards{gap:10px;padding:14px}
+}
 @media(max-width:640px){
   .card{flex-wrap:wrap;padding:16px 18px}
   .card .t{font-size:16.5px}
@@ -170,14 +193,19 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 
 /* ── chapter four: the chain ── */
 #intact{background:linear-gradient(180deg,var(--ink) 0%,#08182D 55%,var(--navy) 100%)}
-.chainline{position:absolute;left:-4%;right:-4%;top:64%;transform:translateY(-50%);z-index:2}
+.chainline{position:absolute;left:-4%;right:-4%;top:78%;transform:translateY(-50%);z-index:2}
 .chainline svg{width:100%;height:auto}
 .chainkey{position:absolute;left:50%;top:50%;width:36vw;height:26vh;transform:translate(-50%,-50%);
   background:radial-gradient(closest-side,rgba(201,162,39,.26),transparent 72%);pointer-events:none}
-#intact .cap{transform:translateY(-8vh);max-width:1240px}
+#intact .cap{transform:translateY(-13vh);max-width:1240px}
+#intact .cap:before{content:"";position:absolute;inset:-14% -18%;z-index:-1;
+  background:radial-gradient(60% 55% at 50% 48%,rgba(6,15,30,.85) 0%,rgba(6,15,30,.55) 55%,transparent 80%)}
 
 /* ── sections ── */
-.sec{position:relative;padding:clamp(84px,11vw,168px) 0}
+.sec{position:relative;padding:clamp(72px,9vw,132px) 0}
+/* the thread runs on: a short gold segment drops into each act of the back half */
+.spine{position:absolute;left:50%;top:0;width:1px;height:clamp(56px,9vh,110px);transform-origin:top;
+  background:linear-gradient(180deg,var(--gold),transparent);transform:scaleY(0);pointer-events:none}
 .sec.light{background:linear-gradient(180deg,#071426 0%,#0B1F3A 48%,#071426 100%);position:relative;overflow:hidden}
 .sec.light:before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(60% 50% at 78% 18%,rgba(201,162,39,.09) 0%,transparent 70%)}
@@ -185,7 +213,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 .sec-head .h2{margin-top:16px}
 .sec-head p{margin-top:20px;max-width:56ch}
 @media(min-width:1000px){
-  .sec-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:clamp(32px,5vw,88px);
+  .sec-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:clamp(32px,5vw,88px);align-items:start;
     align-items:end;border-top:1px solid rgba(143,163,191,.18);padding-top:clamp(22px,2.4vw,34px)}
   .sec-head .eyebrow{grid-column:1/-1;margin-bottom:14px}
   .sec-head .h2{max-width:none;margin-top:0}
@@ -201,10 +229,12 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
   transition:box-shadow .5s,background .5s}
 .door:hover,.door:focus-within{box-shadow:inset 0 0 0 1px rgba(201,162,39,.5);background:rgba(255,255,255,.055)}
 .door h3{font-size:clamp(21px,2.1vw,30px);margin:14px 0 16px}
-.door .who{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-family:var(--display);font-weight:600}
+.door .who{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8FA3BF;font-family:var(--display);font-weight:600}
 .door ul{list-style:none;margin-top:26px;display:grid;gap:13px}
 .door li{position:relative;padding-left:26px;color:#B9C8DB;font-size:15.5px;line-height:1.6}
-.door li:before{content:"";position:absolute;left:0;top:.62em;width:11px;height:1.5px;background:var(--gold)}
+.door li:before{content:"";position:absolute;left:0;top:.62em;width:11px;height:1.5px;background:#8FA3BF}
+.door-cta{display:flex;align-items:center;gap:22px;margin-top:26px;flex-wrap:wrap}
+.btn.small{padding:11px 20px;font-size:13.5px}
 .door .go{margin-top:30px;display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:14.5px;color:#fff}
 .door .go span{transition:transform .3s}
 .door:hover .go span{transform:translateX(5px)}
@@ -213,8 +243,9 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 #pillarPin{height:100svh;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .pinhead{position:absolute;top:clamp(84px,12vh,120px);left:max(var(--gutter),8vw);right:max(var(--gutter),8vw);
   display:flex;justify-content:space-between;align-items:flex-start;gap:24px;z-index:3;pointer-events:none}
-.pinhead h3{font-size:clamp(20px,1.9vw,28px);margin-top:12px;max-width:16ch}
-.pincount{font-family:var(--display);font-weight:600;font-size:clamp(13px,1.1vw,15px);color:var(--mist);
+.pinhead h3{font-size:clamp(30px,3.1vw,52px);margin-top:12px;letter-spacing:-.03em;line-height:1.05}
+.pinhead .lede{margin-top:14px;max-width:52ch;color:#AFC0D6;font-size:clamp(15px,1.1vw,17.5px);line-height:1.65}
+.pincount{font-family:var(--display);font-weight:600;font-size:clamp(15px,1.3vw,19px);color:var(--mist);
   font-variant-numeric:tabular-nums;letter-spacing:.06em}
 .pincount b{color:var(--gold);font-weight:600;display:inline-block}
 .ptrack{display:flex;gap:26px;padding:0 max(var(--gutter),8vw);will-change:transform}
@@ -222,14 +253,19 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
   display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;
   background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.018));
   box-shadow:inset 0 0 0 1px rgba(143,163,191,.18)}
-.pillar.hot{background:linear-gradient(160deg,rgba(201,162,39,.22),rgba(201,162,39,.05));
-  box-shadow:inset 0 0 0 1px rgba(201,162,39,.45)}
-.pillar .n{font-family:var(--display);font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.18em}
+.pillar.hot{background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.02));
+  box-shadow:inset 0 0 0 1px rgba(143,163,191,.22),inset 0 2px 0 0 var(--gold)}
+.pillar.hot .n{color:var(--gold)}
+.pillar .n{font-family:var(--display);font-size:12px;font-weight:600;color:#8FA3BF;letter-spacing:.18em}
 .pillar h3{font-size:clamp(20px,1.8vw,27px);margin:18px 0 15px}
-.pillar p{color:#AFC0D6;font-size:15.5px;line-height:1.7}
+.pillar .ghost{position:absolute;top:-2%;right:4%;font-family:var(--display);font-weight:700;
+  font-size:clamp(120px,11vw,180px);line-height:1;color:rgba(255,255,255,.045);letter-spacing:-.04em;
+  pointer-events:none;user-select:none;transition:color .5s ease}
+.pillar.hot .ghost{color:rgba(201,162,39,.10)}
+.pillar p{color:#AFC0D6;font-size:clamp(15.5px,1.05vw,17.5px);line-height:1.7}
 .prail{position:absolute;left:max(var(--gutter),8vw);right:max(var(--gutter),8vw);bottom:clamp(28px,5vh,60px);
   height:2px;background:rgba(143,163,191,.16)}
-.prail i{display:block;height:100%;width:0;background:var(--gold);box-shadow:0 0 14px rgba(201,162,39,.6)}
+.prail i{display:block;height:100%;width:0;background:var(--gold)}
 @media(max-width:820px){
   #pillarPin{height:auto;overflow:visible;padding:8px 0 40px;display:block}
   .pinhead{position:static;flex-direction:column;padding:0 20px;margin-bottom:22px}
@@ -285,7 +321,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 @media(max-width:760px){.proof{grid-template-columns:1fr;gap:30px}}
 
 .ai{position:relative;overflow:hidden;background:var(--ink)}
-.ai .bgi{position:absolute;inset:0;background:url('assets/bg1.jpg') center/cover;opacity:.9}
+.ai .bgi{position:absolute;inset:0;background:url('assets/bg1.jpg') center/cover;opacity:.9;filter:saturate(.78) contrast(1.05) brightness(.88)}
 .ai .ov{position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,15,30,.95) 0%,rgba(6,15,30,.88) 32%,rgba(11,31,58,.6) 70%,rgba(11,31,58,.45) 100%)}
 .ai .wrap{position:relative}
 .ai-list{display:grid;gap:22px;margin-top:clamp(34px,4vw,52px)}
@@ -296,12 +332,12 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 .ai-list b{display:block;color:#fff;font-weight:600;font-family:var(--display);font-size:17px;margin-bottom:6px;letter-spacing:-.015em}
 
 .why{position:relative;overflow:hidden;background:var(--navy)}
-.why .bgi{position:absolute;inset:0;background:url('assets/bg2.jpg') center/cover;opacity:.85}
+.why .bgi{position:absolute;inset:0;background:url('assets/bg2.jpg') center/cover;opacity:.85;filter:saturate(.78) contrast(1.05) brightness(.88)}
 .why .ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,15,30,.95) 0%,rgba(6,15,30,.88) 40%,rgba(11,31,58,.62) 78%,rgba(11,31,58,.55) 100%)}
 .why .wrap{position:relative}
 
 .mo{background:var(--navy);position:relative;overflow:hidden}
-.mo .bgi{position:absolute;inset:0;background:url('assets/bg3.jpg') center/cover;opacity:.32;filter:brightness(1.3) contrast(1.15) saturate(.55)}
+.mo .bgi{position:absolute;inset:0;background:url('assets/bg3.jpg') center/cover;opacity:.5;filter:saturate(.68) contrast(1.1) brightness(1.05)}
 .mo .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,15,30,.92) 0%,rgba(6,15,30,.55) 45%,rgba(6,15,30,.94) 100%)}
 .mo .wrap{position:relative;text-align:center}
 .mo .h2{margin:16px auto 0;max-width:20ch}
@@ -328,6 +364,16 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 .cform option{background:var(--navy);color:#fff}
 .cform .full{grid-column:1/-1}
 .cform .btn{width:100%;justify-content:center;padding:16px 24px;font-size:15px}
+#formOk{display:none;margin-top:26px;padding:22px 24px;border-radius:14px;background:rgba(11,31,58,.7);
+  box-shadow:inset 0 0 0 1px rgba(201,162,39,.35);text-align:left}
+#formOk b{display:block;font-family:var(--display);font-weight:600;color:#fff;font-size:16.5px}
+#formOk span{display:block;margin-top:8px;color:#AFC0D6;font-size:14px}
+#formOk pre{margin:14px 0 0;padding:14px 16px;border-radius:10px;background:rgba(6,15,30,.7);color:#D7E1EE;
+  font-size:13px;line-height:1.6;white-space:pre-wrap;font-family:ui-monospace,monospace}
+#formOk .okrow{display:flex;gap:18px;align-items:center;margin-top:14px}
+#formOk button{background:var(--gold);color:var(--ink);border:0;border-radius:999px;padding:9px 18px;
+  font-weight:600;font-size:13.5px;cursor:pointer;font-family:var(--display)}
+#formOk a{color:#AFC0D6;font-size:13.5px}
 .cnote{margin-top:18px;font-size:13px;color:var(--mist);text-align:center;line-height:1.7}
 .cnote a{color:#B9C8DB;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:640px){.cform{grid-template-columns:1fr}}
@@ -359,9 +405,9 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 /* The overture drives itself on pure CSS: it plays and leaves on a fixed
    clock whether or not a single line of JavaScript ever runs. */
 .curtain{position:fixed;inset:0;z-index:200;background:var(--ink);display:grid;place-items:center;
-  will-change:transform;pointer-events:none;animation:curtainOut .95s cubic-bezier(.76,0,.22,1) 1.7s forwards}
+  will-change:transform;pointer-events:none;animation:curtainOut .85s cubic-bezier(.76,0,.22,1) .95s forwards}
 @keyframes curtainOut{to{transform:translateY(-101%);visibility:hidden}}
-.curtain-in{display:grid;place-items:center;gap:26px;animation:curtainIn .5s ease 1.35s forwards}
+.curtain-in{display:grid;place-items:center;gap:26px;animation:curtainIn .4s ease .7s forwards}
 @keyframes curtainIn{to{opacity:0;transform:translateY(-14px)}}
 .curtain svg{width:clamp(56px,6vw,78px);height:auto;overflow:visible}
 .curtain .lkA{animation:lkA .9s cubic-bezier(.16,1,.3,1) both}
@@ -370,10 +416,10 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
 @keyframes lkB{from{opacity:0;transform:translate(26px,-30px) rotate(16deg) scale(.86)}to{opacity:1;transform:none}}
 .curtain-bar{width:min(200px,42vw);height:1px;background:rgba(143,163,191,.22);overflow:hidden}
 .curtain-bar i{display:block;height:100%;width:0;background:var(--gold);box-shadow:0 0 12px rgba(201,162,39,.7);
-  animation:barFill 1.15s cubic-bezier(.5,0,.3,1) .25s forwards}
+  animation:barFill .7s cubic-bezier(.5,0,.3,1) .1s forwards}
 @keyframes barFill{to{width:100%}}
 .curtain-wm{font-family:var(--display);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#4E627D;
-  opacity:0;animation:wmIn .5s ease .5s forwards}
+  opacity:0;animation:wmIn .4s ease .25s forwards}
 @keyframes wmIn{to{opacity:1}}
 html.booting{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.curtain{display:none}}
@@ -504,16 +550,16 @@ main:focus{outline:none}
         <p class="hero-sub" id="heroSub">The sales progression platform for estate agencies that run progression in-house. It tells the person holding twenty live sales which of them needs them today.</p>
         <div class="hero-cta" id="heroCta">
           <a class="btn" href="#demo">Book a demo</a>
-          <a class="btn ghost" href="#demo">Bring five live cases</a>
+          <a class="btn ghost" href="#work">Watch it catch a dying sale</a>
         </div>
-        <p class="hero-note">Sits alongside Reapit, Alto, Street and Dezrez. It doesn&rsquo;t replace them.</p>
+        <p class="hero-note">Bring five live cases to the demo and watch them land on the board. Sits alongside Reapit, Alto, Street and Dezrez &mdash; it doesn&rsquo;t replace them.</p>
       </div>
     </div>
     <div class="scroll-hint"><i></i> Scroll</div>
   </section>
 
   <section class="scene" id="chain">
-    <div class="bg"></div><div class="vig"></div>
+    <div class="bg"></div><div class="unify"></div><div class="vig"></div>
     <div class="layer">
       <div class="cap rv">
         <span class="eyebrow">Chapter one</span>
@@ -524,7 +570,11 @@ main:focus{outline:none}
   </section>
 
   <section class="scene" id="fracture">
-    <div class="bg"></div><div class="vig"></div>
+    <div class="bg"></div><div class="unify"></div><div class="vig"></div>
+    <svg class="crack" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path id="crackPath" d="M-40 140 L210 250 L340 236 L520 360 L610 344 L800 470 L905 452 L1090 590 L1210 570 L1400 700 L1520 688 L1680 800"
+        fill="none" stroke="rgba(228,209,160,.42)" stroke-width="1.6"/>
+    </svg>
     <div class="layer">
       <div class="cap rv">
         <span class="eyebrow">Chapter two</span>
@@ -542,7 +592,12 @@ main:focus{outline:none}
           <h2 style="margin-top:16px">So the platform makes it loud.</h2>
           <p class="cap-note">Action Required &mdash; the first screen your progressor opens, at 8:40 on a Thursday.</p>
         </div>
+        <div class="work-thread" aria-hidden="true"></div>
         <div class="appframe">
+          <div class="af-zero" id="afZero" aria-hidden="true"><div>
+            <b>Nothing on your book needs a human right now.</b>
+            <span>Action Required &middot; 0 &mdash; the state this screen exists to reach.</span>
+          </div></div>
           <div class="af-bar">
             <svg viewBox="0 0 120 120" aria-hidden="true">
               <path d="M44 15 H44 A14.5 14.5 0 0 1 58.5 29.5 V90.5 A14.5 14.5 0 0 1 44 105 H44 A14.5 14.5 0 0 1 29.5 90.5 V29.5 A14.5 14.5 0 0 1 44 15 Z M44 23.5 H44 A6 6 0 0 1 50 29.5 V90.5 A6 6 0 0 1 44 96.5 H44 A6 6 0 0 1 38 90.5 V29.5 A6 6 0 0 1 44 23.5 Z" fill="#fff" fill-rule="evenodd" transform="rotate(-30 44 60)"/>
@@ -581,9 +636,18 @@ main:focus{outline:none}
             <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff"/>
             <stop offset="1" stop-color="#fff" stop-opacity="0"/>
           </linearGradient>
+          <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F0D46A"/><stop offset=".55" stop-color="#C9A227"/>
+            <stop offset="1" stop-color="#7A6420"/>
+          </linearGradient>
+          <linearGradient id="eg" x1="0" x2="1">
+            <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".12" stop-color="#fff"/>
+            <stop offset=".88" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
           <mask id="pm"><rect id="pmr" x="-460" y="0" width="460" height="420" fill="url(#pg)"/></mask>
+          <mask id="em"><rect x="0" y="0" width="1600" height="420" fill="url(#eg)"/></mask>
         </defs>
-        <g id="links" fill="none"></g>
+        <g id="links" fill="none" mask="url(#em)"></g>
         <g id="pulse" mask="url(#pm)" fill="none" opacity=".9"></g>
       </svg>
     </div>
@@ -598,8 +662,9 @@ main:focus{outline:none}
 </div>
 
 <section class="sec navy" id="platform">
+  <i class="spine" aria-hidden="true"></i>
   <div class="wrap">
-    <p class="derisk rv">You are not replacing Reapit, Alto, Street or Dezrez. They win the instruction and agree the sale. <b>VelocitySPX takes over at the memorandum of sale and runs it to the keys.</b></p>
+    <p class="derisk rv">You are not replacing Reapit, Alto, Street or Dezrez. They win the instruction and agree the sale. <b>VelocitySPX takes over at the memorandum of sale and runs it to the keys.</b> It already does, every day, on Momentum Sales Progression&rsquo;s live book.</p>
     <div class="sec-head rv">
       <span class="eyebrow">Two people, two problems</span>
       <h2 class="h2">One of you has to get through today.<br>The other has to explain the quarter.</h2>
@@ -619,7 +684,8 @@ main:focus{outline:none}
           <li>AI that reads the case history and drafts the update email. You read it, change it, send it.</li>
           <li>Real holiday cover: your caseload is visible to your buddy the day you go away, and back to you the day you return</li>
         </ul>
-        <a class="go" href="#platform-detail" data-door="progressor">See the progressor&rsquo;s day <span aria-hidden="true">&rarr;</span></a>
+        <div class="door-cta"><a class="btn small" href="#demo" data-role="I progress sales">Book the demo</a>
+        <a class="go" href="#platform-detail" data-door="progressor">See the progressor&rsquo;s day <span aria-hidden="true">&rarr;</span></a></div>
       </article>
 
       <article class="door rv" id="directors" aria-labelledby="door2h">
@@ -634,42 +700,38 @@ main:focus{outline:none}
           <li>Traffic-light status across the whole book, on desktop and on your phone</li>
           <li>The fallthrough you spot in week two is a sale you keep.</li>
         </ul>
-        <a class="go" href="#platform-detail" data-door="director">See what the director sees <span aria-hidden="true">&rarr;</span></a>
+        <div class="door-cta"><a class="btn small" href="#demo" data-role="I run the agency">Book the demo</a>
+        <a class="go" href="#platform-detail" data-door="director">See what the director sees <span aria-hidden="true">&rarr;</span></a></div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="sec light" id="platform-detail" style="padding-bottom:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">The platform</span>
-      <h2 class="h2">Six things it does, properly.</h2>
-      <p class="lede">Built for one job, by people who do that job every day. Your CRM was built for the eleven weeks before this.</p>
-    </div>
-  </div>
+<section class="sec light" id="platform-detail" style="padding-bottom:0;padding-top:0">
   <div id="pillarPin">
     <div class="pinhead">
       <div>
         <span class="eyebrow">The platform</span>
         <h3>Six things it does, properly.</h3>
+        <p class="lede">Built for one job, by people who do that job every day. Your CRM was built for the eleven weeks before this.</p>
       </div>
       <div class="pincount"><b id="pcNow">01</b> / 06</div>
     </div>
     <div class="ptrack" id="ptrack">
-      <div class="pillar"><div class="n">01</div><h3>Workflow</h3><p>Every sale carries its own lifecycle, its own chain status, its own enquiry and searches state. Boards hold your fields and your option lists, so nobody works round someone else&rsquo;s process. Auction stock runs on its own lifecycle alongside private treaty.</p></div>
-      <div class="pillar"><div class="n">02</div><h3>Communication</h3><p>Write your templates once and send them in your own branding. Optional milestone updates keep vendors and buyers informed at exchange, completion and the moments in between, switched on per board and never by default.</p></div>
-      <div class="pillar"><div class="n">03</div><h3>Visibility</h3><p>Every email is logged with what actually happened to it: delivered, bounced, auto-replied. &ldquo;I emailed the solicitor&rdquo; becomes a record with a date on it.</p></div>
-      <div class="pillar"><div class="n">04</div><h3>SPX AI</h3><p>The memorandum of sale comes out of your CRM and straight into a case. Nobody retypes an address, a solicitor or a chain position. It reads the history, tells you where the sale really is, and drafts the update for you to send.</p></div>
-      <div class="pillar"><div class="n">05</div><h3>Client experience</h3><p>Vendors and buyers stop ringing to ask what&rsquo;s happening, because they already know. The updates go out in your name, in your branding, on the milestones that matter to them.</p></div>
-      <div class="pillar"><div class="n">06</div><h3>Reporting</h3><p>Pipeline distribution, aged pipeline, time to exchange, fallthrough rate, traffic-light status, capacity and holiday cover. On desktop, and on a reporting view actually designed for a phone.</p></div>
+      <div class="pillar"><span class="ghost" aria-hidden="true">01</span><div class="n">01</div><h3>Workflow</h3><p>Every sale carries its own lifecycle, its own chain status, its own enquiry and searches state. Boards hold your fields and your option lists, so nobody works round someone else&rsquo;s process. Auction stock runs on its own lifecycle alongside private treaty.</p></div>
+      <div class="pillar"><span class="ghost" aria-hidden="true">02</span><div class="n">02</div><h3>Communication</h3><p>Write your templates once and send them in your own branding. Optional milestone updates keep vendors and buyers informed at exchange, completion and the moments in between, switched on per board and never by default.</p></div>
+      <div class="pillar"><span class="ghost" aria-hidden="true">03</span><div class="n">03</div><h3>Visibility</h3><p>Every email is logged with what actually happened to it: delivered, bounced, auto-replied. &ldquo;I emailed the solicitor&rdquo; becomes a record with a date on it.</p></div>
+      <div class="pillar"><span class="ghost" aria-hidden="true">04</span><div class="n">04</div><h3>SPX AI</h3><p>The memorandum of sale comes out of your CRM and straight into a case. Nobody retypes an address, a solicitor or a chain position. It reads the history, tells you where the sale really is, and drafts the update for you to send.</p></div>
+      <div class="pillar"><span class="ghost" aria-hidden="true">05</span><div class="n">05</div><h3>Client experience</h3><p>Vendors and buyers stop ringing to ask what&rsquo;s happening, because they already know. The updates go out in your name, in your branding, on the milestones that matter to them.</p></div>
+      <div class="pillar"><span class="ghost" aria-hidden="true">06</span><div class="n">06</div><h3>Reporting</h3><p>Pipeline distribution, aged pipeline, time to exchange, fallthrough rate, traffic-light status, capacity and holiday cover. On desktop, and on a reporting view actually designed for a phone.</p></div>
     </div>
     <div class="prail"><i id="prailFill"></i></div>
   </div>
 </section>
 
 <section class="sec ai" id="ai">
-  <div class="bgi"></div><div class="ov"></div>
+  <i class="spine" aria-hidden="true"></i>
+  <div class="bgi"></div><div class="unify"></div><div class="ov"></div>
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">SPX AI</span>
@@ -686,7 +748,8 @@ main:focus{outline:none}
 </section>
 
 <section class="sec why">
-  <div class="bgi"></div><div class="ov"></div>
+  <i class="spine" aria-hidden="true"></i>
+  <div class="bgi"></div><div class="unify"></div><div class="ov"></div>
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Proven at Momentum Sales Progression</span>
@@ -702,7 +765,8 @@ main:focus{outline:none}
 </section>
 
 <section class="sec mo">
-  <div class="bgi"></div><div class="ov"></div>
+  <i class="spine" aria-hidden="true"></i>
+  <div class="bgi"></div><div class="unify"></div><div class="ov"></div>
   <div class="wrap rv">
     <span class="eyebrow">Optional caseload cover</span>
     <h2 class="h2">When you&rsquo;re a person short, we can be the person.</h2>
@@ -825,8 +889,29 @@ main:focus{outline:none}
     const v = id => (document.getElementById(id).value || '').trim();
     const body = 'Name: '+v('f-name')+'\nAgency: '+v('f-agency')+'\nEmail: '+v('f-email')
       +'\nPhone: '+v('f-phone')+'\nRole: '+v('f-role')+'\nSales in progression: '+v('f-vol');
-    location.href = 'mailto:hello@velocityspx.com?subject='+encodeURIComponent('VelocitySPX demo request')
+    const mailto = 'mailto:hello@velocityspx.com?subject='+encodeURIComponent('VelocitySPX demo request')
       +'&body='+encodeURIComponent(body);
+    let ok = document.getElementById('formOk');
+    if (!ok) {
+      ok = document.createElement('div');
+      ok.id = 'formOk';
+      ok.innerHTML = '<b>Almost there &mdash; your email app should open now.</b>'
+        + '<span>If it didn&rsquo;t, copy your details and send them to hello@velocityspx.com:</span>'
+        + '<pre></pre><div class="okrow"><button type="button" id="okCopy">Copy details</button>'
+        + '<a href="#" id="okMail">Open email again</a></div>';
+      form.parentNode.insertBefore(ok, form.nextSibling);
+      ok.querySelector('#okCopy').addEventListener('click', function(){
+        const pre = ok.querySelector('pre');
+        (navigator.clipboard ? navigator.clipboard.writeText(pre.textContent) : Promise.reject())
+          .then(function(){ this.textContent = 'Copied' }.bind(this))
+          .catch(function(){ const r=document.createRange(); r.selectNodeContents(pre);
+            const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); });
+      });
+    }
+    ok.querySelector('pre').textContent = body;
+    ok.querySelector('#okMail').setAttribute('href', mailto);
+    ok.style.display = 'block';
+    location.href = mailto;
   });
 
   if (reduce) {
@@ -848,7 +933,7 @@ main:focus{outline:none}
   // Chapter three only gets pinned if the whole product frame fits on screen.
   const workEl = document.getElementById('work');
   const workGrid = document.querySelector('.work-grid');
-  const workPin = pinOK && workGrid && (workGrid.scrollHeight + 120) <= window.innerHeight;
+  const workPin = pinOK && workGrid && (workGrid.scrollHeight + 40) <= window.innerHeight;
   if (!workPin && workEl) workEl.classList.add('tall');
 
   // Native scrolling. The wheel is the user's — ScrollTrigger listens, nothing
@@ -871,7 +956,7 @@ main:focus{outline:none}
   // The overture runs itself on CSS (see .curtain keyframes). JS only tidies
   // the node away and starts the hero — via one class that fires pure CSS
   // animations. There is no timeline that can stall mid-boot.
-  setTimeout(function(){ if (curtain && curtain.parentNode) { curtain.remove(); ScrollTrigger.refresh(); } }, 2900);
+  setTimeout(function(){ if (curtain && curtain.parentNode) { curtain.remove(); ScrollTrigger.refresh(); } }, 2000);
 
   /* ═══ PINNED SCENES FIRST — creation order is refresh order ═══ */
 
@@ -904,14 +989,25 @@ main:focus{outline:none}
     if (wk) io.observe(wk);
   })();
 
+  gsap.fromTo('.work-thread', { scaleY:0 }, { scaleY:1, ease:'none', immediateRender:false,
+    scrollTrigger:{ trigger:'#work', start: workPin ? 'top 60%' : 'top 85%', end: workPin ? 'top 8%' : 'top 55%', scrub:.4 } });
   ScrollTrigger.create({
     trigger:'#work',
     start: workPin ? 'top top' : 'top 78%',
     end:   workPin ? '+=170%'  : 'bottom 55%',
     scrub: workPin ? .25 : .5, refreshPriority:1,
     onUpdate(self){
+      // the final 12% of the hold is the payoff: the board goes quiet
+      const z = document.getElementById('afZero');
+      if (z && workPin) {
+        const zp = self.progress > 0.88;
+        if (zp !== (z.dataset.on === '1')) {
+          z.dataset.on = zp ? '1' : '0';
+          gsap.to(z, { opacity: zp ? 1 : 0, duration:.4, overwrite:'auto' });
+        }
+      }
       const cards = document.querySelectorAll('#cards .card');
-      const p = (self.progress - 0.18) / 0.70;
+      const p = (self.progress - 0.16) / 0.66;
       cards.forEach(function(c,i){
         const on = p > (i + .35) / cards.length;
         if (on !== (c.dataset.on === '1')) {
@@ -936,13 +1032,16 @@ main:focus{outline:none}
     }
   });
 
-  gsap.timeline({ scrollTrigger:{ trigger:'#intact', start: pinOK ? 'top top' : 'top 82%', end: pinOK ? '+=190%' : 'bottom 40%', scrub:.35, pin:pinOK, anticipatePin:1, refreshPriority:1 } })
-    .fromTo('#chainline', { scale: pinOK ? 1.6 : 1.14, yPercent:8, opacity:0 }, { scale:1, yPercent:0, opacity:1, duration:.5, ease:'power1.inOut', immediateRender:false }, 0)
-    .to('#chainline', { xPercent: pinOK ? 5 : 0, ease:'none', duration:2 }, 0)
+  gsap.timeline({ scrollTrigger:{ trigger:'#intact', start: pinOK ? 'top top' : 'top 82%', end: pinOK ? '+=140%' : 'bottom 40%', scrub:.35, pin:pinOK, anticipatePin:1, refreshPriority:1 } })
+    // the thesis lands first, alone
+    .fromTo('#intact .cap', { opacity:0, y:34 }, { opacity:1, y:0, duration:.4, ease:'power2.out', immediateRender:false }, .12)
+    // the frame settles…
+    .fromTo('#chainline', { scale: pinOK ? 1.45 : 1.14, yPercent:10, opacity:0 }, { scale:1, yPercent:0, opacity:1, duration:.45, ease:'power1.inOut', immediateRender:false }, .3)
+    .to('#chainline', { xPercent: pinOK ? 4 : 0, ease:'none', duration:1.7 }, .3)
+    // …and only then does the chain forge, centre outward, under the words
     .fromTo('#links rect', { strokeDashoffset: function(i,el){ return +el.dataset.per } },
-      { strokeDashoffset:0, duration:.55, ease:'power2.inOut', immediateRender:false, stagger:{ each:.045, from:'center' } }, .12)
-    .fromTo('#intact .cap', { opacity:0, y:34 }, { opacity:1, y:0, duration:.5, ease:'power2.out', immediateRender:false }, pinOK ? .55 : .2)
-    .fromTo('#pmr', { attr:{ x:-460 } }, { attr:{ x:1700 }, duration:1, ease:'power2.inOut' }, .95);
+      { strokeDashoffset:0, duration:.5, ease:'power2.inOut', immediateRender:false, stagger:{ each:.04, from:'center' } }, .78)
+    .fromTo('#pmr', { attr:{ x:-460 } }, { attr:{ x:1700 }, duration:.9, ease:'power2.inOut' }, 1.35);
 
   let pillarStart = 0, pillarDistance = 0;
   (function pillars(){
@@ -959,7 +1058,7 @@ main:focus{outline:none}
     const tween = gsap.to(track, {
       x: function(){ return -distance() }, ease:'none',
       scrollTrigger:{
-        trigger: pin, start:'top top', end: function(){ return '+=' + (distance() + window.innerHeight*0.8) },
+        trigger: pin, start:'top top', end: function(){ return '+=' + (distance() + window.innerHeight*0.25) },
         pin:true, scrub:.25, invalidateOnRefresh:true, anticipatePin:1, refreshPriority:1,
         onRefresh(self){ pillarStart = self.start; pillarDistance = distance(); },
         onUpdate(self){
@@ -968,6 +1067,7 @@ main:focus{outline:none}
           let best = 0, bd = Infinity;
           cards.forEach(function(c,n){ const r = c.getBoundingClientRect();
             const d = Math.abs(r.left + r.width/2 - mid); if (d < bd) { bd = d; best = n; } });
+          if (self.progress > 0.96) best = cards.length - 1;
           cards.forEach(function(c,n){ c.classList.toggle('hot', n === best) });
           const label = String(best+1).padStart(2,'0');
           if (now && now.textContent !== label) {
@@ -978,9 +1078,9 @@ main:focus{outline:none}
       }
     });
     cards.forEach(function(c){
-      gsap.fromTo(c, { scale:.88, opacity:.35, filter:'blur(4px)' },
-        { scale:1, opacity:1, filter:'blur(0px)', ease:'none', immediateRender:false,
-          scrollTrigger:{ trigger:c, containerAnimation:tween, start:'left 88%', end:'center 55%', scrub:.3 } });
+      gsap.fromTo(c, { scale:.94, opacity:.45, filter:'brightness(.6)' },
+        { scale:1, opacity:1, filter:'brightness(1)', ease:'none', immediateRender:false,
+          scrollTrigger:{ trigger:c, containerAnimation:tween, start:'left 92%', end:'left 70%', scrub:.3 } });
     });
   })();
 
@@ -1004,6 +1104,27 @@ main:focus{outline:none}
   });
   gsap.fromTo('#chain .bg', { scale:1.22, yPercent:-4 }, { scale:1.02, yPercent:4, ease:'none',
     scrollTrigger:{ trigger:'#chain', start:'top bottom', end:'bottom top', scrub:.85 } });
+
+  // chapter two performs itself: the crack draws across the frame, the light
+  // drains, the white lines fall to 40% — and "It goes quiet." holds gold
+  (function fracturePlay(){
+    const path = document.getElementById('crackPath');
+    if (!path) return;
+    const len = path.getTotalLength();
+    path.style.strokeDasharray = len;
+    gsap.fromTo(path, { strokeDashoffset:len }, { strokeDashoffset:0, ease:'none', immediateRender:false,
+      scrollTrigger:{ trigger:'#fracture', start:'top 75%', end: pinOK ? 'top -30%' : 'bottom 60%', scrub:.5 } });
+    gsap.to('#fracture .bg', { filter:'saturate(.5) contrast(1.3) brightness(.72)', ease:'none',
+      scrollTrigger:{ trigger:'#fracture', start: pinOK ? 'top 20%' : 'top 40%', end: pinOK ? 'top -40%' : 'bottom 50%', scrub:.6 } });
+    const white = document.querySelectorAll('#fracture .cap h2 .ln:not(:last-child)');
+    if (white.length) gsap.to(white, { opacity:.4, ease:'none',
+      scrollTrigger:{ trigger:'#fracture', start: pinOK ? 'top 8%' : 'top 30%', end: pinOK ? 'top -46%' : 'bottom 45%', scrub:.6 } });
+  })();
+
+  gsap.utils.toArray('.spine').forEach(function(el){
+    gsap.fromTo(el, { scaleY:0 }, { scaleY:1, ease:'none', immediateRender:false,
+      scrollTrigger:{ trigger:el.parentElement, start:'top 88%', end:'top 45%', scrub:.5 } });
+  });
 
   gsap.utils.toArray('.ai .bgi, .mo .bgi, .why .bgi').forEach(function(el){
     gsap.fromTo(el, { yPercent:-14 }, { yPercent:14, ease:'none',
@@ -1061,6 +1182,8 @@ main:focus{outline:none}
 
   const hdr = document.getElementById('hdr');
   ScrollTrigger.create({ start:'top -60', onUpdate(s){ hdr.classList.toggle('solid', s.scroll() > 60) } });
+  ScrollTrigger.create({ trigger:'#chain', start:'top 80%',
+    onEnter(){ hdr.classList.add('cta-armed') }, onLeaveBack(){ hdr.classList.remove('cta-armed') } });
   ScrollTrigger.create({ trigger:'#intact', start:'bottom 80%',
     onEnter(){ hdr.classList.add('armed') }, onLeaveBack(){ hdr.classList.remove('armed') } });
 
@@ -1076,15 +1199,16 @@ main:focus{outline:none}
     const nameEl = document.getElementById('chapName');
     const mark = document.querySelector('.chapmark');
     const defs = [['#hero','00','The chain holds'],['#chain','01','Five families'],
-      ['#fracture','02','It goes quiet'],['#work','03','Made loud'],['#intact','04','Nothing goes quiet']];
+      ['#fracture','02','It goes quiet'],['#work','03','Made loud'],['#intact','04','Nothing goes quiet'],
+      ['#platform','05','Two people'],['#platform-detail','06','Six things'],['#ai','07','SPX AI'],
+      ['.why','08','Proven'],['.mo','09','Momentum'],['#demo','10','Five live cases']];
     let marks = [], filmEnd = 1e9;
     const cache = function(){
       marks = defs.map(function(d){
         const el = document.querySelector(d[0]);
         return el ? { top: el.getBoundingClientRect().top + window.scrollY, n:d[1], label:d[2] } : null;
       }).filter(Boolean);
-      const p = document.querySelector('#platform');
-      filmEnd = p ? p.getBoundingClientRect().top + window.scrollY : 1e9;
+      filmEnd = 1e9;
     };
     cache(); ScrollTrigger.addEventListener('refresh', cache);
     ScrollTrigger.create({ start:0, end:'max',
@@ -1136,6 +1260,13 @@ main:focus{outline:none}
     card.addEventListener('pointerleave', function(){ rx(0); ry(0); y(0) });
   });
 
+  document.addEventListener('click', function(e){
+    const a = e.target.closest('a[data-role]');
+    if (!a) return;
+    const sel = document.getElementById('f-role');
+    if (sel) sel.value = a.dataset.role;
+  });
+
   const HEADER_OFFSET = -96;
   document.addEventListener('click', function(e){
     const a = e.target.closest('a[href^="#"]');
@@ -1147,7 +1278,7 @@ main:focus{outline:none}
     e.preventDefault();
     const door = a.dataset.door;
     if (door && pillarStart) {
-      window.scrollTo({ top: door === 'director' ? pillarStart + pillarDistance*0.82 : pillarStart + 40, behavior:'smooth' });
+      window.scrollTo({ top: door === 'director' ? pillarStart + pillarDistance + window.innerHeight*0.15 : pillarStart + 40, behavior:'smooth' });
     } else {
       window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY + HEADER_OFFSET, behavior:'smooth' });
     }
