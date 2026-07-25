@@ -245,7 +245,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-
    Pinning on iOS fights the URL bar, and a 100svh scene clipped chapter
    three's product frame by 327px on a 390px phone. */
 @media(max-width:820px){
-  .scene{height:auto;min-height:auto;overflow:hidden;padding:clamp(76px,13vh,120px) 0}
+  .scene{height:auto;min-height:auto;overflow:hidden;padding:clamp(64px,10vh,96px) 0}
   #hero{min-height:100svh;padding:0;overflow:hidden}
   .scene:not(#hero) .layer{position:relative;inset:auto;padding-top:0;display:block}
   .scene:not(#hero) .bg{position:absolute;inset:-6% 0;opacity:1!important}
@@ -952,8 +952,16 @@ main:focus{outline:none}
       scrollTrigger:{ trigger:sel, start:'top bottom', end:'top 30%', scrub:.85 } });
     gsap.to(sel+' .bg', { opacity:0, ease:'none',
       scrollTrigger:{ trigger:sel, start:'bottom 72%', end:'bottom top', scrub:.85 } });
-    gsap.to(sel+' .cap', { yPercent:-18, opacity:0, filter:'blur(6px)', ease:'power2.in',
-      scrollTrigger:{ trigger:sel, start:'center 40%', end:'bottom 22%', scrub:.55 } });
+    // The caption hold-then-dissolve only works inside a pinned, full-height
+    // scene. On a phone the scenes are short and scroll normally, so the exit
+    // window overlaps the entrance and the caption never gets to be read.
+    if (pinOK) {
+      // Hold the caption while it is centred, then let it rise and blur as it
+      // leaves. Keyed off how far the scene top has travelled past the viewport
+      // top, so the caption is fully readable for most of the scene.
+      gsap.to(sel+' .cap', { yPercent:-18, opacity:0, filter:'blur(6px)', ease:'power2.in',
+        scrollTrigger:{ trigger:sel, start:'top -28%', end:'top -74%', scrub:.55 } });
+    }
   });
   gsap.fromTo('#chain .bg', { scale:1.22, yPercent:-4 }, { scale:1.02, yPercent:4, ease:'none',
     scrollTrigger:{ trigger:'#chain', start:'top bottom', end:'bottom top', scrub:.85 } });
