@@ -880,11 +880,15 @@ main:focus{outline:none}
           c.dataset.on = on ? '1' : '0';
           c.classList.toggle('done', on);
           const q = function(s){ return c.querySelector(s) };
-          gsap.to([q('.t'), q('.s'), q('.st')], { opacity:0, duration:.14, onComplete(){
+          const parts = [q('.t'), q('.s'), q('.st')];
+          // scrubbing fast can fire this repeatedly; overwrite so a half-finished
+          // fade can never leave a row stuck at partial opacity
+          gsap.killTweensOf(parts);
+          gsap.to(parts, { opacity:0, duration:.14, overwrite:'auto', onComplete(){
             q('.t').innerHTML  = on ? c.dataset.t  : c.dataset.t0;
             q('.s').innerHTML  = on ? c.dataset.s  : c.dataset.s0;
             q('.st').innerHTML = on ? c.dataset.st : c.dataset.st0;
-            gsap.to([q('.t'), q('.s'), q('.st')], { opacity:1, duration:.2 });
+            gsap.to(parts, { opacity:1, duration:.2, overwrite:'auto' });
           }});
           gsap.to(c, { '--sy': on ? 1 : 0, duration:.5, ease:'power3.out' });
           document.getElementById('afCount').textContent =
