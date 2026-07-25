@@ -98,8 +98,8 @@ h1,h2,h3,.d{font-family:var(--display);font-weight:600;letter-spacing:-.022em;li
 .cap .eyebrow{margin-bottom:20px;display:block}
 
 #chain .bg{background-image:url('assets/street.jpg')}
-#fracture .bg{background-image:url('assets/fracture.jpg')}
-#fracture .vig{background:radial-gradient(110% 80% at 50% 50%,rgba(120,20,20,.13) 0%,transparent 45%),radial-gradient(120% 90% at 50% 45%,transparent 18%,rgba(6,15,30,.6) 60%,var(--ink) 100%)}
+#fracture .bg{background-image:url('assets/fracture.jpg');filter:brightness(1.55) contrast(1.12) saturate(1.1)}
+#fracture .vig{background:radial-gradient(120% 78% at 50% 46%,rgba(150,26,26,.2) 0%,transparent 52%),radial-gradient(135% 105% at 50% 45%,transparent 42%,rgba(6,15,30,.5) 78%,var(--ink) 100%)}
 
 /* chapter 3 — the work */
 #work{background:var(--ink)}
@@ -174,8 +174,8 @@ h1,h2,h3,.d{font-family:var(--display);font-weight:600;letter-spacing:-.022em;li
 
 /* ai band */
 .ai{position:relative;overflow:hidden;background:var(--ink)}
-.ai .bgi{position:absolute;inset:0;background:url('assets/bg1.jpg') center/cover;opacity:.42}
-.ai .ov{position:absolute;inset:0;background:linear-gradient(100deg,var(--ink) 12%,rgba(11,31,58,.72) 62%,rgba(11,31,58,.3) 100%)}
+.ai .bgi{position:absolute;inset:0;background:url('assets/bg1.jpg') center/cover;opacity:.9}
+.ai .ov{position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,15,30,.94) 0%,rgba(6,15,30,.86) 30%,rgba(11,31,58,.34) 68%,rgba(11,31,58,.05) 100%)}
 .ai .wrap{position:relative}
 .ai-list{display:grid;gap:14px;margin-top:34px;max-width:56ch}
 .ai-list div{padding-left:24px;position:relative;color:#B9C8DB;font-size:16px}
@@ -184,8 +184,14 @@ h1,h2,h3,.d{font-family:var(--display);font-weight:600;letter-spacing:-.022em;li
 
 /* momentum band */
 .mo{background:var(--navy);position:relative;overflow:hidden}
-.mo .bgi{position:absolute;inset:0;background:url('assets/bg3.jpg') center/cover;opacity:.55}
-.mo .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,31,58,.9),rgba(6,15,30,.94))}
+.mo .bgi{position:absolute;inset:0;background:url('assets/bg3.jpg') center/cover;opacity:1;filter:brightness(2.6) contrast(1.2) saturate(1.15)}
+.mo .ov{position:absolute;inset:0;background:radial-gradient(66% 62% at 50% 50%,rgba(6,15,30,.9) 0%,rgba(6,15,30,.66) 52%,rgba(11,31,58,.18) 100%)}
+
+/* why-us band */
+.why{position:relative;overflow:hidden;background:var(--navy)}
+.why .bgi{position:absolute;inset:0;background:url('assets/bg2.jpg') center/cover;opacity:.85}
+.why .ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,15,30,.95) 0%,rgba(6,15,30,.84) 38%,rgba(11,31,58,.4) 78%,rgba(11,31,58,.12) 100%)}
+.why .wrap{position:relative}
 .mo .wrap{position:relative;text-align:center}
 .mo .h2{margin:18px auto 0;max-width:20ch}
 .mo p{margin:24px auto 0;max-width:58ch;color:#B9C8DB}
@@ -423,7 +429,8 @@ h1,h2,h3,.d{font-family:var(--display);font-weight:600;letter-spacing:-.022em;li
 </section>
 
 <!-- ══════════ proof ══════════ -->
-<section class="sec navy">
+<section class="sec why">
+  <div class="bgi"></div><div class="ov"></div>
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Why us</span>
@@ -612,7 +619,7 @@ h1,h2,h3,.d{font-family:var(--display);font-weight:600;letter-spacing:-.022em;li
   /* ── AMBIENT / NON-PINNED AFTER ALL PINS ─────────────────────── */
 
   // parallax on the two image bands below the film
-  gsap.utils.toArray('.ai .bgi, .mo .bgi').forEach(el=>{
+  gsap.utils.toArray('.ai .bgi, .mo .bgi, .why .bgi').forEach(el=>{
     gsap.fromTo(el, { yPercent:-8 }, { yPercent:8, ease:'none',
       scrollTrigger:{ trigger:el.parentElement, start:'top bottom', end:'bottom top', scrub:.7 } });
   });
