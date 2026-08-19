@@ -592,7 +592,7 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
         <li>You'll get a straight price on the call</li>
       </ul>
     </div>
-    <form class="form" id="demoform">
+    <form class="form" id="demoform" action="https://formsubmit.co/ajax/hello@velocityspx.co.uk" method="POST" novalidate>
       <div class="fg two-up">
         <div class="fg"><label for="f-name">Your name</label><input id="f-name" name="name" placeholder="Sarah Whitfield" required></div>
         <div class="fg"><label for="f-agency">Agency</label><input id="f-agency" name="agency" placeholder="Marchmont &amp; Vale" required></div>
@@ -603,9 +603,20 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
         <div class="fg"><label for="f-role">Which are you?</label><select id="f-role" name="role"><option>I run the agency</option><option>I progress sales</option><option>Both</option></select></div>
         <div class="fg"><label for="f-vol">Sales in progression</label><select id="f-vol" name="volume"><option>Under 20</option><option>20–50</option><option>50–150</option><option>150+</option></select></div>
       </div>
+      <input type="hidden" name="_subject" value="New demo request — VelocitySPX">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
       <button class="btn btn-g btn-lg" type="submit">Book my 30 minutes</button>
+      <p class="fine" id="f-err" hidden style="color:#ffd9d9">Something went wrong sending that. Please <a href="mailto:hello@velocityspx.co.uk">email us directly</a> and we'll come straight back.</p>
       <p class="fine">Rather just ask something? <a href="mailto:hello@velocityspx.co.uk">Email us instead.</a></p>
     </form>
+    <div class="form" id="demodone" hidden style="text-align:center;padding:34px 26px">
+      <div style="width:56px;height:56px;margin:0 auto 16px;border-radius:50%;background:rgba(250,210,1,.16);box-shadow:inset 0 0 0 1px rgba(250,210,1,.5);display:flex;align-items:center;justify-content:center">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FAD201" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h3 style="color:#fff;margin:0 0 8px;font-family:var(--head)">Thanks — that's with us.</h3>
+      <p style="color:rgba(255,255,255,.72);margin:0">We'll reply the same working day to set up your 30 minutes. Keep an eye on your inbox.</p>
+    </div>
   </div>
 </section>
 </main>
@@ -656,11 +667,28 @@ if('IntersectionObserver'in window){
   });
 })();
 
-document.getElementById('demoform').addEventListener('submit',function(e){
-  e.preventDefault();var d=new FormData(this);
-  var body=['Name: '+d.get('name'),'Agency: '+d.get('agency'),'Email: '+d.get('email'),'Phone: '+(d.get('phone')||'—'),'Role: '+d.get('role'),'Sales in progression: '+d.get('volume')].join('\n');
-  location.href='mailto:hello@velocityspx.co.uk?subject='+encodeURIComponent('Demo request — '+d.get('agency'))+'&body='+encodeURIComponent(body);
-});
+(function(){
+  var f=document.getElementById('demoform');if(!f)return;
+  var done=document.getElementById('demodone'),err=document.getElementById('f-err');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.checkValidity()){f.reportValidity();return;}
+    var btn=f.querySelector('button[type=submit]');
+    btn.disabled=true;var label=btn.textContent;btn.textContent='Sending…';
+    if(err)err.hidden=true;
+    var obj={};new FormData(f).forEach(function(v,k){obj[k]=v;});
+    fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(obj)})
+      .then(function(r){return r.json();})
+      .then(function(res){
+        if(res&&(res.success===true||res.success==='true')){
+          f.hidden=true;done.hidden=false;done.scrollIntoView({behavior:'smooth',block:'center'});
+        }else{throw new Error('rejected');}
+      })
+      .catch(function(){
+        btn.disabled=false;btn.textContent=label;if(err)err.hidden=false;
+      });
+  });
+})();
 </script>
 </body>
 </html>
