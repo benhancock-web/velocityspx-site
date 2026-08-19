@@ -89,6 +89,12 @@ section{padding:104px 0}
 .sec-head p{font-size:18px;color:var(--mute)}
 .center{text-align:center;margin-left:auto;margin-right:auto}
 .center .eyebrow{justify-content:center}
+/* The brand tagline. Sits directly above the H1 as the first thing read, so it
+   gets a shade more weight and letter-spacing than a plain section eyebrow —
+   but stays in muted ink, because it introduces the headline rather than
+   competing with it. */
+.eyebrow.tagline{font-size:13px;letter-spacing:.15em;color:var(--slate);font-weight:600}
+.eyebrow.tagline::before{width:7px;height:7px}
 .bloomed{position:relative}
 .bloomed::before{content:"";position:absolute;inset:0;background:var(--bloom);pointer-events:none;z-index:0}
 .bloomed>*{position:relative;z-index:1}
@@ -329,7 +335,7 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
 <main id="top">
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">Sales progression software</span>
+    <span class="eyebrow tagline">Sales progression, made productive</span>
     <h1><span class="b">Less time processing.</span><span class="b">More time progressing.</span></h1>
     <p class="sub">VelocitySPX gives your progression team one place to run every sale from memorandum to completion — so fewer sales fall through, more exchange on time, and each progressor can carry more.</p>
     <div class="cta">
