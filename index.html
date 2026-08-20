@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>VelocitySPX — Sales progression software for estate agencies</title>
-<meta name="description" content="One place to run every sale from memorandum to completion. Fewer fallthroughs, faster exchanges, more cases per progressor.">
+<meta name="description" content="One place to run every sale from sale agreed to completion. Fewer sales fall through, exchanges happen sooner, and progressors stay in control of their caseload.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <meta property="og:title" content="VelocitySPX — Sales progression software for estate agencies">
@@ -181,6 +181,17 @@ section{padding:104px 0}
 .glance-list li::after{content:"";position:absolute;left:5.2px;top:.62em;width:5px;height:8px;border:solid var(--gold-deep);border-width:0 1.8px 1.8px 0;transform:rotate(42deg)}
 .shot img{width:100%;height:auto}
 .cap{margin-top:12px;font-size:12.5px;color:#93A0B0;text-align:center}
+.supporting{max-width:820px;margin:44px auto 0;text-align:center;font-size:17px;color:var(--mute)}
+.card-note{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.09);font-size:13.5px;line-height:1.6;color:#8296B2}
+.card-d.lit .card-note{border-top-color:rgba(250,210,1,.2)}
+.subhead{margin-top:20px;font-family:var(--display);font-weight:600;font-size:clamp(1.05rem,1.9vw,1.3rem);color:var(--navy);letter-spacing:-.02em}
+.mobile .subhead{color:var(--gold)}
+.measband{margin-top:64px;background:#fff;background-image:none;border:1px solid var(--line);border-radius:var(--rl);box-shadow:var(--sh-sm);padding:44px 40px;display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,5vw,64px);align-items:center}
+.measband h3{font-size:clamp(1.35rem,2.3vw,1.8rem);margin-bottom:14px}
+.measband p{font-size:16.5px;color:var(--mute)}
+.mb-list{margin-top:0}
+.mb-list li strong{color:var(--navy);font-weight:600}
+.demo-lead{font-size:16px;color:rgba(255,255,255,.86);margin-bottom:14px}
 
 /* interactive panel showcase */
 .showcase{background-color:var(--paper);background-image:var(--grid);background-size:var(--grid-size);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
@@ -281,7 +292,7 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
 @media(max-width:1000px){
   .nav,.hdr-r .login{display:none}
   .burger{display:block}
-  .feat,.demo .grid,.pane-wrap{grid-template-columns:1fr;gap:40px}
+  .feat,.demo .grid,.pane-wrap,.measband{grid-template-columns:1fr;gap:40px}
   .feat.rev .fx-txt{order:0}
   .split,.two{grid-template-columns:1fr}
   .glance-list{grid-template-columns:1fr 1fr}
@@ -302,6 +313,7 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
   .fg.two-up{grid-template-columns:1fr}
   .ftop{grid-template-columns:1fr}
   .pcard{padding:28px 22px}
+  .measband{padding:30px 24px;gap:26px}
   .glance-list{grid-template-columns:1fr;gap:12px}
   .hdr-logo img{height:27px}
   .hdr-r{gap:8px}
@@ -336,12 +348,12 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
   <div class="wrap">
     <span class="eyebrow tagline">Sales progression, made productive</span>
     <h1><span class="b">Less time processing.</span><span class="b">More time progressing.</span></h1>
-    <p class="sub">VelocitySPX gives your progression team one place to run every sale from memorandum to completion — so fewer sales fall through, more exchange on time, and each progressor can carry more.</p>
+    <p class="sub">VelocitySPX gives your progression team one place to run every sale from sale agreed to completion, so fewer sales fall through, exchanges happen sooner, and progressors can manage their caseload with greater control and less stress.</p>
     <div class="cta">
       <a class="btn btn-p btn-lg" href="#demo">Book a demo</a>
       <a class="btn btn-s btn-lg" href="#platform">See how it works</a>
     </div>
-    <p class="assure">Built inside a working progression business. <strong>Sits alongside your CRM</strong> — Reapit, Alto, Street, Dezrez — and takes over at the memorandum of sale.</p>
+    <p class="assure">Built with a leading progression business. <strong>Sits alongside your generic CRM</strong> — Reapit, Alto, Street, Dezrez — and takes over at the point the sale is agreed.</p>
   </div>
 
   <div class="stage" id="stage">
@@ -377,17 +389,24 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
 <section class="challenger" id="why">
   <div class="wrap">
     <span class="eyebrow">Why a specialist platform</span>
-    <h2>Your CRM was built for getting the sale agreed.<br><em>VelocitySPX was built for everything after it.</em></h2>
-    <p>Estate agency systems have to serve the whole business — listings, applicants, viewings, offers, lettings, compliance. Progression is one tab among many, and it shows the moment a chain gets complicated.</p>
-    <p>VelocitySPX does one job. It picks the sale up at the memorandum and runs it to the keys, with the workflow, chain view and chase discipline that job actually needs.</p>
+    <h2>Your generic CRM tries to do everything, and it's holding you back.<br><em>VelocitySPX is built specifically around how sales progressors actually work.</em></h2>
+    <p>Your CRM helped you get the sale agreed. But progression is a different job; one that involves constantly tracking actions, chasing stakeholders, managing dependencies, and regularly updating clients and keeping the whole chain moving. It's a dynamic workflow.</p>
+    <p>VelocitySPX combines workflow management, live tracking and AI-powered tools to give progressors greater visibility, control and support across every transaction; helping them work more efficiently, stay on top of their caseload and get far more done with less stress.</p>
     <div class="split">
       <div class="card-d rv"><h4>What your CRM is for</h4><ul>
         <li>Winning the instruction</li><li>Marketing the property</li><li>Booking viewings</li>
-        <li>Negotiating the offer</li><li>Agreeing the sale</li></ul></div>
+        <li>Negotiating the offer</li><li>Agreeing the sale</li></ul>
+        <p class="card-note">Doing lots of things well, but not giving sales progressors the specialist workflow, features and tools they actually need</p></div>
       <div class="card-d lit rv"><h4>What VelocitySPX is for</h4><ul>
-        <li>Running the case after the memorandum</li><li>Holding the whole chain in one view</li>
-        <li>Chasing solicitors, brokers and searches</li><li>Keeping vendors and buyers informed</li>
-        <li>Getting to exchange and completion</li></ul></div>
+        <li>Running the case from the moment the memorandum is issued</li>
+        <li>Holding the whole chain in one view</li>
+        <li>Chasing solicitors, brokers, buyers, sellers and other agents in the chain</li>
+        <li>Keeping vendors and buyers informed</li>
+        <li>Knowing exactly where you are at and what you need to do</li>
+        <li>Channelling and communicating all your updates across the whole business</li>
+        <li>Getting to exchange and completion quickly and efficiently</li>
+        <li>Reducing stress whilst increasing revenue</li>
+        <li>Providing data-driven insight</li></ul></div>
     </div>
   </div>
 </section>
@@ -396,37 +415,37 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">The board</span>
-      <h2>Your whole book on one screen</h2>
-      <p>Every live sale, colour-coded by where it actually is. Status, chain, financing status, searches, enquiries and progress — without opening a single case.</p>
+      <h2>Everything you need on one screen to manage your sales progression pipeline</h2>
+      <p>Your entire caseload, in one place. See what's happening across every transaction, understand what needs your attention and stay in control of your workload — with intelligent tools and AI helping with some of the heavy lifting.</p>
     </div>
     <div class="shot rv"><img src="assets/shots/board-table.webp" width="1600" height="586" alt="The live pipeline table showing status, chain status, financing status and progress for every case" loading="lazy"></div>
     <p class="cap">Screens show a demonstration agency. Addresses, names and firms are fictional.</p>
+    <p class="supporting rv">Built around the way sales progressors actually work, VelocitySPX brings workflow, tracking and AI-powered assistance together to help you manage your day, keep transactions moving and stay on top of every sale.</p>
 
     <div class="glance rv" style="margin-top:110px">
       <div class="glance-copy">
         <span class="eyebrow">At a glance</span>
-        <h3>The numbers that tell you whether this month is going wrong</h3>
-        <p>Pipeline, exchanges, completions, fallthroughs and average days to exchange — split freehold and leasehold — sit at the top of every board. No report to run, and no spreadsheet to rebuild on a Monday.</p>
+        <h3>Know where your sales progression stands at any time with our data-rich dashboard</h3>
+        <p>A live view of your progression operation, turning the detail of hundreds of transactions into a clear picture of performance, pipeline and priorities.</p>
       </div>
       <div class="shot glance-img"><img src="assets/shots/board-stats.webp" width="1700" height="115" alt="Board statistics: pipeline, exchanged, completed, fallthrough and average days to exchange" loading="lazy"></div>
       <ul class="glance-list">
-        <li>Live pipeline count, always current</li>
-        <li>Exchanges, completions and fallthroughs over the last 30 days</li>
-        <li>Average days to exchange, freehold and leasehold separated</li>
-        <li>Filter the whole board to one progressor in a click</li>
+        <li>See the bigger picture; understand your entire progression pipeline at a glance</li>
+        <li>Spot what needs attention; identify emerging issues before they become problems</li>
+        <li>Measure performance; understand how your pipeline and team are performing</li>
+        <li>Make better decisions; use live data rather than spreadsheets, assumptions or guesswork</li>
       </ul>
     </div>
 
     <div class="feat rev rv">
       <div class="fx-txt">
         <span class="eyebrow">Your morning</span>
-        <h3>Open the laptop and the day is already sorted</h3>
-        <p>Live pipeline, pipeline by stage, and every reminder you've set with the overdue ones in red at the top. If nothing is red, nothing on your book needs you this morning.</p>
+        <h3>Log in and see your daily workflow; what needs attention, who needs chasing or updating, and where everything stands</h3>
+        <p>Live pipeline, a clear picture of where every case stands, and every reminder you've set with overdue tasks alerted. Less procrastination, less processing, more proactive progression.</p>
         <ul class="flist">
-          <li>Reminders that count working days and know about bank holidays</li>
+          <li>Reminders that count working days (accounting for bank holidays)</li>
           <li>Overdue chases surfaced before anything else</li>
-          <li>Pipeline by stage, so you can see where the book is bunching</li>
-          <li>Every board you work on, with your own caseload called out</li>
+          <li>Pipeline by stage, so you can see where the sales pipeline is bunching</li>
         </ul>
       </div>
       <div class="shot"><img src="assets/shots/dashboard.webp" width="1600" height="762" alt="The progressor dashboard: live pipeline, pipeline by stage and overdue reminders" loading="lazy"></div>
@@ -438,8 +457,8 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">The case file</span>
-      <h2>Everything about one sale, in one place</h2>
-      <p>Open a case and the whole thing is there. No second system, no shared inbox, no spreadsheet you don't trust.</p>
+      <h2>Everything in one place, every update, time-stamped, categorised, and recorded</h2>
+      <p>Open a case and everything you need is there. No second system, no shared inbox, no substandard system to try and bend into shape.</p>
     </div>
     <div class="tabs" id="tabs">
       <button class="on" data-t="details">Details</button>
@@ -463,12 +482,12 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
           <ul><li>Categorised, so you can filter to just the solicitor thread</li><li>Who wrote it and when, on every line</li><li>Handover takes seconds — the story is already written down</li></ul>
         </div>
         <div class="pc" data-t="chain">
-          <h3>The whole chain, above and below</h3>
+          <h3>The whole chain view, with readiness indicators</h3>
           <p>Each link with its agent, its solicitors and whether it's ready to exchange — and your sale highlighted in the middle of it.</p>
           <ul><li>Upstream and downstream, in order</li><li>Ready-to-exchange marked link by link</li><li>See instantly which link is holding everyone up</li></ul>
         </div>
         <div class="pc" data-t="contacts">
-          <h3>Everyone on the sale, one tap away</h3>
+          <h3>Everyone involved, one tap away</h3>
           <p>Vendor, buyer, both solicitors, the broker and the surveyor, with direct numbers and email addresses.</p>
           <ul><li>Everyone on the sale in one list</li><li>Pulled off the memorandum automatically</li><li>No more digging to find who to ring</li></ul>
         </div>
@@ -478,12 +497,12 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
           <ul><li>Every file on the sale in one list, newest first</li><li>Who uploaded it and when, on every line</li><li>Search, preview or download without leaving the case</li></ul>
         </div>
         <div class="pc" data-t="template">
-          <h3>Chase emails, drafted in your voice</h3>
+          <h3>Chase emails, AI drafted in your voice</h3>
           <p>Pick who to write to and the case writes the email — a vendor update, a solicitor chase or an agent update — in your agency's tone, ready to send.</p>
           <ul><li>The right recipients pulled straight off the case</li><li>Friendly or formal, over the period you choose</li><li>Goes out from your address, in your name</li></ul>
         </div>
         <div class="pc" data-t="reminders">
-          <h3>Nothing waits on someone remembering</h3>
+          <h3>Nothing hinges on someone remembering</h3>
           <p>Set a reminder against the case and it chases you. Overdue ones surface in red at the top; finished ones drop out of the way.</p>
           <ul><li>Overdue flagged the moment it slips</li><li>Every follow-up tied to the sale it belongs to</li><li>The next action is never just in someone's head</li></ul>
         </div>
@@ -504,15 +523,16 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
 <section class="mobile" id="mobile">
   <div class="wrap center" style="max-width:760px">
     <span class="eyebrow">On your phone</span>
-    <h2>The same platform, built for the car park</h2>
-    <p>Not a cut-down companion app. The board, the case file, the chain and your reminders — all of it, on the phone that's already in your hand.</p>
+    <h2>The same platform, built for when you're on the move</h2>
+    <p>Not a cut-down companion app. The board, the case file, the chain and your reminders — all of it, on your mobile that's already in your hand.</p>
+    <p class="subhead">See where your sales progression is at, any time, anywhere</p>
   </div>
   <div class="wide">
     <div class="phones rv">
       <figure><div class="phone"><div class="phone-scr"><img src="assets/shots/mob-home.webp" width="560" height="1212" alt="Dashboard on a phone" loading="lazy"></div></div><figcaption>Your morning, on the way in</figcaption></figure>
-      <figure><div class="phone"><div class="phone-scr"><img src="assets/shots/mob-board.webp" width="560" height="1212" alt="Board on a phone" loading="lazy"></div></div><figcaption>The whole board</figcaption></figure>
-      <figure><div class="phone"><div class="phone-scr"><img src="assets/shots/mob-case.webp" width="560" height="1212" alt="Case file on a phone" loading="lazy"></div></div><figcaption>The full case file</figcaption></figure>
-      <figure><div class="phone"><div class="phone-scr"><img src="assets/shots/mob-report.webp" width="560" height="1212" alt="Reporting on a phone" loading="lazy"></div></div><figcaption>Your numbers</figcaption></figure>
+      <figure><div class="phone"><div class="phone-scr"><img src="assets/shots/mob-board.webp" width="560" height="1212" alt="Board on a phone" loading="lazy"></div></div><figcaption>The full pipeline view</figcaption></figure>
+      <figure><div class="phone"><div class="phone-scr"><img src="assets/shots/mob-case.webp" width="560" height="1212" alt="Case file on a phone" loading="lazy"></div></div><figcaption>Every case file in detail</figcaption></figure>
+      <figure><div class="phone"><div class="phone-scr"><img src="assets/shots/mob-report.webp" width="560" height="1212" alt="Reporting on a phone" loading="lazy"></div></div><figcaption>Your status in numbers</figcaption></figure>
     </div>
   </div>
 </section>
@@ -522,13 +542,13 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
     <div class="sec-head center">
       <span class="eyebrow">For whoever runs the business</span>
       <h2>The reports you'd otherwise build by hand</h2>
-      <p>Pipeline distribution, aged pipeline, capacity planning, time to exchange, fallthrough rate and traffic-light status — already built, always current, and broken down by progressor.</p>
+      <p>Pipeline distribution, aged pipeline, capacity planning, time to exchange, fall-through rate and traffic-light status — already built, always current, and driving real insights.</p>
     </div>
     <div class="shot rv"><img src="assets/shots/reporting.webp" width="1700" height="1012" alt="The reporting console: live pipeline, fallthroughs and exchanges by progressor" loading="lazy"></div>
     <div class="mgrid rv" style="margin-top:52px">
-      <div class="mcard"><h4>Where the book is bunching</h4><p>Pipeline distribution and aged pipeline show which sales have been in progression too long, and whose they are, before they turn into fallthroughs.</p></div>
-      <div class="mcard"><h4>Who is carrying what</h4><p>Live case volume, exchanges and fallthroughs by progressor, so capacity planning happens before you hire and before someone burns out.</p></div>
-      <div class="mcard"><h4>Whether it's getting better</h4><p>Time to exchange and fallthrough rate tracked over time, per person, so you can tell a good month from a good process.</p></div>
+      <div class="mcard"><h4>Where the pipeline is bunching</h4><p>Pipeline distribution and aged pipeline show which sales have been in progression too long, and whose they are, before they turn into fallthroughs.</p></div>
+      <div class="mcard"><h4>What needs doing and who is assigned</h4><p>Live case volume, exchanges and fallthroughs by progressor, so capacity planning happens before you hire and before someone burns out.</p></div>
+      <div class="mcard"><h4>Track performance over time</h4><p>Time to exchange and fallthrough rate tracked over time, per person, so you can tell a good month from a good process.</p></div>
     </div>
   </div>
 </section>
@@ -537,27 +557,27 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">Who it's for</span>
-      <h2>Two people, two problems</h2>
-      <p>One of you has to get through today. The other has to explain the quarter.</p>
+      <h2>Two people, two different perspectives</h2>
+      <p>One of you has to get through today. The other has to explain the financial quarter.</p>
     </div>
     <div class="two">
       <div class="pcard rv">
         <span class="tag">For the sales progressor</span>
-        <h3>Take control of every case</h3>
-        <p>You're holding twenty sales in your head and a spreadsheet you don't quite trust. This puts all of it in one place and tells you what needs you today.</p>
+        <h3>Take control of every case, carry more, stress less</h3>
+        <p>You're holding numerous sales in your head and a spreadsheet you can't always trust. We put all of it in one place and now you know exactly where you're at, what needs doing, and by when.</p>
         <ul class="flist">
-          <li>One case record with the whole sale on it, from AML to completion statement</li>
-          <li>Reminders that count working days and know about bank holidays</li>
-          <li>The full chain against every case, above and below you</li>
-          <li>Every update categorised, so a handover takes seconds</li>
-          <li>Real holiday cover, so going away doesn't mean coming back to chaos</li>
+          <li>Everything neatly contained in one case record from sale agreed to completion</li>
+          <li>A complete workflow solution with calendar alerts</li>
+          <li>The full chain against every case, above and below you, with AI-assisted chain updates</li>
+          <li>Every update categorised, so anyone can see your notes and where things stand</li>
+          <li>Real holiday cover, so going away doesn't mean coming back to chaos — request a real expert sales progressor to cover holiday periods. Enquire for more information.</li>
         </ul>
         <div class="bot"><a class="btn btn-p" href="#demo">Book a demo</a></div>
       </div>
       <div class="pcard rv">
         <span class="tag">For the agency owner</span>
-        <h3>Know exactly where every sale stands</h3>
-        <p>You already own this data. It's sitting in inboxes, notebooks and one person's memory. This turns it into something you can run a business on.</p>
+        <h3>Know exactly where every sale stands and prove the ROI on your sales progression function</h3>
+        <p>You already own this data. It's sitting in inboxes, notebooks and one person's memory. VelocitySPX turns it into something you can run a business on.</p>
         <ul class="flist">
           <li>Live pipeline by progressor, with fallthroughs and exchanges side by side</li>
           <li>Aged pipeline — which sales have been in progression too long, and whose</li>
@@ -568,6 +588,20 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
         <div class="bot"><a class="btn btn-p" href="#demo">Book a demo</a></div>
       </div>
     </div>
+
+    <div class="measband rv">
+      <div class="mb-copy">
+        <h3>Turn sales progression into a measurable, manageable part of your business</h3>
+        <p>VelocitySPX gives you a live, complete view of your progression operation, turning transaction-level data into the insight you need to manage performance, identify risk, optimise capacity and demonstrate the value of your sales progression function.</p>
+      </div>
+      <ul class="flist mb-list">
+        <li><strong>Complete visibility</strong> — know exactly what is happening across your entire sales progression pipeline.</li>
+        <li><strong>Performance insight</strong> — understand how effectively your people and processes are progressing sales.</li>
+        <li><strong>Early intervention</strong> — identify risks, bottlenecks and underperformance before they impact your bottom line results.</li>
+        <li><strong>Operational control</strong> — manage workload and capacity based on evidence, not assumption.</li>
+        <li><strong>Monthly reports</strong> — delivered straight to your mailbox; measure the contribution of your progression function and its ROI.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -575,13 +609,13 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">Where it came from</span>
-      <h2>Built by people who progress sales for a living</h2>
-      <p>VelocitySPX wasn't designed in a workshop. It was built inside a working sales progression business, used every day, and hardened by the sales it nearly lost.</p>
+      <h2>Built by UK industry experts who progress sales for a living</h2>
+      <p>VelocitySPX wasn't designed in a boardroom. It was built &lsquo;on the ground&rsquo; within a leading sales progression business, pulling on years of hard-won industry experience.</p>
     </div>
     <div class="mgrid">
-      <div class="mcard rv"><h4>By progressors, for progressors</h4><p>No feature in VelocitySPX was specified in a board room. Each one was designed with experienced working sales progressors, on live transactions, because it solved a real-world problem and added real value.</p></div>
+      <div class="mcard rv"><h4>Built with sales progressors, for sales progressors</h4><p>No feature in VelocitySPX was specified in a boardroom. Each one was designed with experienced working sales progressors, on live transactions, because it solved a real-world problem and added real value.</p></div>
       <div class="mcard rv"><h4>Your data stays yours</h4><p>UK-hosted, with each agency's data separated at the database level. We're your processor, never the owner, and you can take your data with you.</p></div>
-      <div class="mcard rv"><h4>Your name on everything</h4><p>Vendors and buyers see your agency — your branding, your address, your sender name. They never see VelocitySPX.</p></div>
+      <div class="mcard rv"><h4>Your solution is fully branded with your company name and logo</h4><p>Vendors and buyers see your agency — your branding, your address, your sender name. They never see VelocitySPX.</p></div>
     </div>
   </div>
 </section>
@@ -590,12 +624,13 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
   <div class="wrap">
     <div class="sec-head center"><span class="eyebrow">Questions</span><h2>The things agencies ask first</h2></div>
     <div class="faq">
-      <details open><summary>Does this replace our CRM?</summary><div class="ans"><p>No, and it isn't trying to. Reapit, Alto, Street and Dezrez win the instruction, market the property and agree the sale. VelocitySPX takes over at the memorandum of sale and runs the case to completion. Your negotiators carry on exactly as they are.</p></div></details>
-      <details><summary>How long does it take to get going?</summary><div class="ans"><p>A first-run setup wizard walks you through your boards, your fields, your statuses and your email templates. Most of the configuration is choosing how your team already works rather than learning ours.</p></div></details>
-      <details><summary>What does it cost?</summary><div class="ans"><p>Pricing is per progressor, per month, with no setup fee. We'll give you a straight number on the demo call once we know how many people you'd put on it.</p></div></details>
-      <details><summary>Will our clients know we're using it?</summary><div class="ans"><p>Only if you tell them. Every email, update and document goes out in your agency's name, from your address, with your branding. VelocitySPX never appears in front of a vendor or a buyer.</p></div></details>
-      <details><summary>Is our data safe, and is it separate from other agencies?</summary><div class="ans"><p>Yes. Each agency's data is isolated at the database level, not just hidden in the interface, and the platform is UK-hosted. We act as your data processor under a written agreement.</p></div></details>
-      <details><summary>What if we're short-staffed?</summary><div class="ans"><p>Momentum Sales Progression, the business VelocitySPX was built inside, can pick up a caseload inside the same platform when you're a person down — holiday, sickness or a spike in volume — and hand it straight back. It's optional, and no software vendor can offer it, because no software vendor does the work.</p></div></details>
+      <details open><summary>Does this replace or complement our CRM?</summary><div class="ans"><p>No, and it isn't trying to. Reapit, Alto, Street and Dezrez win the instruction, market the property and agree the sale. VelocitySPX takes over at the memorandum of sale and runs the case to completion. Your negotiators carry on exactly as they are.</p></div></details>
+      <details><summary>How long does it take to get started?</summary><div class="ans"><p>A first-run setup wizard walks you through your boards, your fields, your statuses and your email templates. Most of the configuration is choosing how your team already works rather than learning ours.</p></div></details>
+      <details><summary>What does it cost?</summary><div class="ans"><p>Start with three months free of charge, with no credit card. After that, pricing is per progressor, per month, with no setup fee — and we'll give you a straight number on the demo call once we know how many people you'd put on it. If the value isn't clear, you walk away and export your data.</p></div></details>
+      <details><summary>Will our clients know we&rsquo;re using it?</summary><div class="ans"><p>Only if you tell them. Every email, update and document goes out in your agency's name, from your address, with your branding. VelocitySPX never appears in front of a vendor or a buyer.</p></div></details>
+      <details><summary>Is our data secure, and is it kept separate from other agencies?</summary><div class="ans"><p>Yes. Each agency's data is isolated at the database level, not just hidden in the interface, and the platform is UK-hosted. We act as your data processor under a written agreement.</p></div></details>
+      <details><summary>How will VelocitySPX fit into the way our team already works?</summary><div class="ans"><p>It sits on top of how you work now rather than replacing it. Your negotiators carry on in the CRM, the same people keep progressing the same cases, and VelocitySPX picks each sale up once it's agreed. Your boards, statuses, fields and email templates are set to match your process during onboarding, and we walk your team through it rather than handing over a login and a manual.</p></div></details>
+      <details><summary>Can you also provide expert sales progression cover when we're short-staffed or someone is away?</summary><div class="ans"><p>Momentum Sales Progression, the business VelocitySPX was built inside, can pick up a caseload inside the same platform when you're a person down — holiday, sickness or a spike in volume — and hand it straight back. It's optional, and no software vendor can offer it, because no software vendor does the work.</p></div></details>
     </div>
   </div>
 </section>
@@ -604,13 +639,13 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
   <div class="wrap grid">
     <div>
       <span class="eyebrow">Book a demo</span>
-      <h2>Bring us five live cases</h2>
-      <p>Thirty minutes, no slides. We'll show you what the platform would have told you about those five sales this morning.</p>
+      <h2>Book a demo, then try it for 3 months free of charge</h2>
+      <p class="demo-lead">No credit card required. If the value isn't clear, simply walk away &mdash; you can export your data any time.</p>
+      <p>We'll give you a real, live demo of the platform. Zero hard sell, just an informative session to see if it works for you.</p>
       <ul class="pts">
         <li>We reply the same working day</li>
-        <li>On Teams, or in your office if you'd rather</li>
-        <li>No preparation needed beyond the five addresses</li>
-        <li>You'll get a straight price on the call</li>
+        <li>We'll schedule a call on Teams, Google Meet or Zoom</li>
+        <li>If you decide to proceed, we can migrate your data free of charge so you can be up and running in no time</li>
       </ul>
     </div>
     <form class="form" id="demoform" action="https://formsubmit.co/ajax/hello@velocityspx.co.uk" method="POST" novalidate>
@@ -627,7 +662,7 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
       <input type="hidden" name="_subject" value="New demo request — VelocitySPX">
       <input type="hidden" name="_template" value="table">
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-      <button class="btn btn-g btn-lg" type="submit">Book my 30 minutes</button>
+      <button class="btn btn-g btn-lg" type="submit">Book my 30-minute discovery session</button>
       <p class="fine" id="f-err" hidden style="color:#ffd9d9">Something went wrong sending that. Please <a href="mailto:hello@velocityspx.co.uk">email us directly</a> and we'll come straight back.</p>
       <p class="fine">Rather just ask something? <a href="mailto:hello@velocityspx.co.uk">Email us instead.</a></p>
     </form>
@@ -647,7 +682,7 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
     <div class="ftop">
       <div>
         <img src="assets/velocityspx-lockup.svg" alt="VelocitySPX">
-        <p>Sales progression software for estate agencies that run progression in-house. Built and used every day by Momentum Sales Progression.</p>
+        <p>Sales progression software for estate agencies that run their sales progression in-house. Developed, built and refined with Momentum Sales Progression, one of the UK's leading sales progression companies.</p>
       </div>
       <div class="fcol"><h5>Platform</h5><a href="#platform">The board</a><a href="#case">The case file</a><a href="#mobile">On your phone</a><a href="#reporting">Reporting</a></div>
       <div class="fcol"><h5>Who it's for</h5><a href="#who">Sales progressors</a><a href="#who">Agency owners</a><a href="#why">Why a specialist</a></div>
