@@ -270,6 +270,10 @@ details .ans{padding:0 0 24px;font-size:16px;color:var(--mute);max-width:700px}
 .form .btn{width:100%;margin-top:8px}
 .form .fine{font-size:12.5px;color:#7E93B1;margin-top:14px;text-align:center}
 .form .fine a{color:#A9BBD2;text-decoration:underline;text-underline-offset:2px}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-bottom:15px}
+.consent input[type=checkbox]{margin-top:3px;width:16px;height:16px;flex:none;accent-color:var(--gold)}
+.consent label{font-size:12.5px;color:#9FB2CC;line-height:1.5}
+.consent label a{color:#A9BBD2;text-decoration:underline;text-underline-offset:2px}
 
 footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;border-top:1px solid rgba(255,255,255,.06)}
 .ftop{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -661,6 +665,7 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
       <input type="hidden" name="_subject" value="New demo request — VelocitySPX">
       <input type="hidden" name="_template" value="table">
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <div class="consent"><input id="f-consent" name="consent" type="checkbox" required><label for="f-consent">By submitting this form, you're agreeing to how we handle your details as set out in our <a href="privacy.html">Privacy Notice</a>. We'll use them to arrange your demo and may occasionally follow up with relevant updates &mdash; you can opt out any time.</label></div>
       <button class="btn btn-g btn-lg" type="submit">Book my 30-minute discovery session</button>
       <p class="fine" id="f-err" hidden style="color:#ffd9d9">Something went wrong sending that. Please <a href="mailto:hello@velocityspx.co.uk">email us directly</a> and we'll come straight back.</p>
       <p class="fine">Rather just ask something? <a href="mailto:hello@velocityspx.co.uk">Email us instead.</a></p>
