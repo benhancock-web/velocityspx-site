@@ -89,13 +89,32 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0}
 footer .wrap{max-width:1180px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#5F7392}
 footer img{height:22px;display:block}
 footer a{color:#5F7392;border:0}
+
+header .nav{display:flex;align-items:center;gap:24px}
+header a.logo{border:0;display:inline-flex;align-items:center;transition:opacity .15s}
+header a.logo:hover{opacity:.82}
+header .nav a.lnk{font-family:var(--display);font-size:14px;font-weight:600;color:var(--navy);border:0;position:relative;transition:color .15s}
+header .nav a.lnk:hover{color:var(--gold-deep)}
+header .nav a.lnk.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--gold);border-radius:2px}
+header .nav a.cta{font-family:var(--display);font-size:13.5px;font-weight:600;color:#fff;background:var(--navy);border:0;border-radius:9px;padding:9px 16px;transition:background .15s}
+header .nav a.cta:hover{background:#12294A;color:#fff}
+@media(max-width:560px){
+  header img{height:23px}
+  header .nav{gap:14px}
+  header .nav a.lnk{font-size:13px}
+  header .nav a.cta{padding:8px 13px;font-size:12.5px}
+}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <a class="home" href="../index.html" style="border:0"><img src="../assets/velocityspx-lockup-light.svg" alt="VelocitySPX"></a>
-    <a class="home" href="index.html">← Back to blog</a>
+    <a class="logo" href="../index.html"><img src="../assets/velocityspx-lockup-light.svg" alt="VelocitySPX"></a>
+    <nav class="nav">
+      <a class="lnk" href="../index.html">Home</a>
+      <a class="lnk active" href="index.html">Blog</a>
+      <a class="cta" href="../index.html#demo">Book a demo</a>
+    </nav>
   </div>
 </header>
 
