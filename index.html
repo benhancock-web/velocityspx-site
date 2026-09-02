@@ -715,7 +715,7 @@ footer{background:var(--ink);color:#7E93B1;padding:64px 0 32px;font-size:14.5px;
       </div>
       <div class="fcol"><h5>Platform</h5><a href="#platform">The board</a><a href="#case">The case file</a><a href="#mobile">On your phone</a><a href="#reporting">Reporting</a></div>
       <div class="fcol"><h5>Who it's for</h5><a href="#who">Sales progressors</a><a href="#who">Agency owners</a><a href="#why">Why a specialist</a></div>
-      <div class="fcol"><h5>Company</h5><a href="#demo">Book a demo</a><a href="mailto:hello@velocityspx.co.uk">Contact</a><a href="blog/index.html">Blog</a><a href="https://portal.velocityspx.co.uk">Portal login</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+      <div class="fcol"><h5>Company</h5><a href="#demo">Book a demo</a><a href="mailto:hello@velocityspx.co.uk">Contact</a><a href="blog/index.html">Blog</a><a href="https://portal.velocityspx.co.uk">Portal login</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a></div>
     </div>
     <div class="fbot"><span>© 2026 VelocitySPX. All rights reserved.</span><span>Product screens show a demonstration agency. Addresses, names and firms are fictional.</span></div>
   </div>
@@ -767,6 +767,7 @@ if('IntersectionObserver'in window){
       .then(function(res){
         if(res&&(res.success===true||res.success==='true')){
           f.hidden=true;done.hidden=false;done.scrollIntoView({behavior:'smooth',block:'center'});
+          if(typeof gtag==='function'){gtag('event','generate_lead');}
         }else{throw new Error('rejected');}
       })
       .catch(function(){
@@ -775,5 +776,60 @@ if('IntersectionObserver'in window){
   });
 })();
 </script>
+<div id="cookiebar" class="cookiebar" hidden>
+  <div class="cookiebar-wrap">
+    <p>We use Google Analytics to understand how visitors use this site. No data is used for advertising. <a href="cookies.html">Learn more</a></p>
+    <div class="cookiebar-btns">
+      <button type="button" id="cookieReject" class="cb-btn cb-reject">Reject</button>
+      <button type="button" id="cookieAccept" class="cb-btn cb-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<style>
+.cookiebar{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#0B1F3A;padding:16px 20px;box-shadow:0 -2px 12px rgba(0,0,0,.15)}
+.cookiebar-wrap{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.cookiebar p{margin:0;font-size:14px;line-height:1.5;color:rgba(255,255,255,.88);flex:1;min-width:240px;font-family:ui-sans-serif,system-ui,sans-serif}
+.cookiebar a{color:#FAD201;border-bottom:1px solid rgba(250,210,1,.4);text-decoration:none}
+.cookiebar-btns{display:flex;gap:10px;flex-shrink:0}
+.cb-btn{font-family:ui-sans-serif,system-ui,sans-serif;font-weight:600;font-size:13.5px;border-radius:8px;padding:9px 16px;border:0;cursor:pointer}
+.cb-accept{background:#FAD201;color:#0B1F3A}
+.cb-reject{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+</style>
+<script>
+(function(){
+  var KEY='vspx_analytics_consent';
+  var GA_ID='G-43ZPG768FK';
+  function getConsent(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+  function setConsent(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  function loadGA(){
+    if(window.__vspxGaLoaded)return;window.__vspxGaLoaded=true;
+    var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){dataLayer.push(arguments);};
+    gtag('js',new Date());
+    gtag('config',GA_ID,{anonymize_ip:true});
+  }
+  window.vspxSetConsent=function(v){
+    setConsent(v);
+    var bar=document.getElementById('cookiebar');if(bar)bar.hidden=true;
+    if(v==='accepted')loadGA();
+  };
+  window.vspxGetConsent=getConsent;
+  var existing=getConsent();
+  if(existing==='accepted'){
+    loadGA();
+  }else if(existing!=='rejected'){
+    var bar=document.getElementById('cookiebar');
+    if(bar){
+      bar.hidden=false;
+      var a=document.getElementById('cookieAccept'),r=document.getElementById('cookieReject');
+      if(a)a.addEventListener('click',function(){window.vspxSetConsent('accepted');});
+      if(r)r.addEventListener('click',function(){window.vspxSetConsent('rejected');});
+    }
+  }
+})();
+</script>
+
 </body>
 </html>

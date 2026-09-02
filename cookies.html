@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Terms of Website Use — VelocitySPX</title>
-<meta name="description" content="The terms that govern use of the VelocitySPX website.">
+<title>Cookies Policy — VelocitySPX</title>
+<meta name="description" content="How VelocitySPX uses cookies and Google Analytics on this website, and how to change your choice.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <style>
@@ -49,6 +49,19 @@ li{position:relative;padding-left:22px;margin-bottom:9px}
 li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:rgba(250,210,1,.9);box-shadow:0 0 0 1px var(--gold-deep)}
 .note{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:18px 0;font-size:15px;color:var(--slate)}
 .note strong{color:var(--navy)}
+table.proc{width:100%;border-collapse:collapse;margin:6px 0 16px;font-size:15.5px}
+table.proc th,table.proc td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+table.proc th{font-family:var(--display);color:var(--navy);font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+
+.choice{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:22px 0}
+.choice h3{font-family:var(--display);color:var(--navy);font-size:16px;margin:0 0 6px}
+.choice p{margin:0 0 16px;font-size:15px}
+.choice-status{font-size:14.5px;color:var(--slate);margin-bottom:14px}
+.choice-status b{color:var(--navy)}
+.choice-btns{display:flex;gap:10px;flex-wrap:wrap}
+.ch-btn{font-family:var(--display);font-weight:600;font-size:14px;border-radius:9px;padding:11px 20px;border:0;cursor:pointer}
+.ch-accept{background:var(--gold);color:var(--navy)}
+.ch-reject{background:#fff;color:var(--navy);border:1px solid var(--line)}
 
 footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0}
 footer .wrap{max-width:1180px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#5F7392}
@@ -67,58 +80,40 @@ footer a{color:#5F7392;border:0}
 <main>
   <div class="wrap">
     <span class="eyebrow">Legal</span>
-    <h1>Terms of Website Use</h1>
+    <h1>Cookies Policy</h1>
     <p class="updated">Last updated: 2 September 2026</p>
 
-    <div class="note"><strong>Note on scope.</strong> These terms govern your use of this website. They do <strong>not</strong> govern use of the VelocitySPX platform itself. Access to the platform is provided under a separate subscription agreement between us and the subscribing organisation.</div>
+    <p class="lead">This page explains the only cookie this website sets, why we set it, and how you can change your mind at any time.</p>
 
-    <h2>1. Who we are</h2>
-    <p>This website is operated by <strong>Momentum Sales Progression Limited</strong>, a company registered in England and Wales (company number 16099402), registered office Clockhouse, Butt Lane, Manuden, Bishop's Stortford, England, CM23 1BN. VelocitySPX is a trading name of Momentum Sales Progression Limited.</p>
-    <p>You can contact us at <a href="mailto:privacy@velocityspx.co.uk">privacy@velocityspx.co.uk</a>.</p>
+    <div class="choice">
+      <h3>Your choice</h3>
+      <p class="choice-status">Current setting: <b id="choiceStatus">Loading…</b></p>
+      <div class="choice-btns">
+        <button type="button" class="ch-btn ch-accept" id="choiceAccept">Accept analytics cookies</button>
+        <button type="button" class="ch-btn ch-reject" id="choiceReject">Reject analytics cookies</button>
+      </div>
+    </div>
 
-    <h2>2. Acceptance</h2>
-    <p>By using this website you accept these terms. If you do not accept them, please do not use the site. We recommend you keep a copy.</p>
+    <h2>What we use</h2>
+    <p>We use one analytics tool, <strong>Google Analytics</strong>, to understand how visitors find and use this site, for example which pages are viewed and roughly how people arrived here. We do not use cookies for advertising, and we do not use any other tracking on this site.</p>
+    <p>Google Analytics only runs if you accept it, either in the banner shown on your first visit or using the buttons above. If you reject it, or simply close the banner without choosing, it stays off.</p>
 
-    <h2>3. Changes</h2>
-    <p>We may change these terms at any time by amending this page. We may also update or withdraw the site, or any part of it, without notice. We do not guarantee the site will always be available or uninterrupted.</p>
+    <h2>What it sets</h2>
+    <table class="proc">
+      <tr><th>Name</th><th>Purpose</th><th>Duration</th></tr>
+      <tr><td><code>vspx_analytics_consent</code></td><td>Remembers your accept/reject choice on this site. Not itself used for tracking.</td><td>Stored on your device until you clear it</td></tr>
+      <tr><td><code>_ga</code>, <code>_ga_*</code></td><td>Set by Google Analytics, only after you accept, to distinguish visitors and sessions.</td><td>Up to 2 years (Google's default)</td></tr>
+    </table>
+    <p>We turn on IP anonymisation in Google Analytics, so your full IP address is not stored against your visit.</p>
 
-    <h2>4. Using the site</h2>
-    <p>You may use this website only for lawful purposes. You must not:</p>
-    <ul>
-      <li>use it in any way that breaches applicable law or regulation</li>
-      <li>use it for any fraudulent or harmful purpose</li>
-      <li>introduce viruses, trojans, worms or other malicious material</li>
-      <li>attempt to gain unauthorised access to the site, the servers on which it is stored, or any connected system</li>
-      <li>attack the site via denial-of-service or similar</li>
-      <li>scrape, data-mine or systematically extract content, or use automated systems to access the site, without our written consent</li>
-    </ul>
-    <p>We will report any breach of the above to the relevant authorities and will cooperate with them, including by disclosing your identity. Your right to use the site ceases immediately on any breach.</p>
+    <h2>Changing your mind</h2>
+    <p>Use the buttons above at any time to switch analytics on or off. You can also clear cookies for this site in your browser settings, which will show you the banner again on your next visit.</p>
 
-    <h2>5. Intellectual property</h2>
-    <p>We own or are licensed to use all intellectual property rights in this website and its content, including the VelocitySPX name and branding. Those rights are reserved.</p>
-    <p>You may print off one copy and download extracts of pages for your own reference. You must not modify copies, use any illustrations, photographs or graphics separately from the accompanying text, or use any part of the content for commercial purposes without a licence from us. Our status as authors must always be acknowledged.</p>
+    <h2>Who processes this data</h2>
+    <p>Google Analytics is provided by Google, based in the United States. See our <a href="privacy.html">Privacy Notice</a> for how we handle personal data more generally, including international transfers.</p>
 
-    <h2>6. Reliance on information</h2>
-    <p>Content on this site is provided for general information only. It is not advice on which you should rely, and it does not constitute legal, financial, conveyancing or professional advice. You should obtain professional advice before taking, or refraining from, any action on the basis of content on this site.</p>
-    <p>Although we make reasonable efforts to keep the site up to date, we make no representations or warranties that its content is accurate, complete or current.</p>
-
-    <h2>7. Our liability</h2>
-    <p>Nothing in these terms excludes or limits our liability for death or personal injury arising from our negligence, for fraud or fraudulent misrepresentation, or for any other liability that cannot be excluded or limited under English law.</p>
-    <p>To the extent permitted by law, we exclude all conditions, warranties and other terms that might otherwise be implied into these terms.</p>
-    <p><strong>If you are a business user</strong>, we will not be liable for any loss of profits, sales, business or revenue; business interruption; loss of anticipated savings; loss of business opportunity, goodwill or reputation; or any indirect or consequential loss, arising from your use of this site or any content on it.</p>
-    <p><strong>If you are a consumer</strong>, we are not liable for loss or damage that is not foreseeable, or that arises from your use of the site for any commercial or business purpose. Your statutory rights are not affected.</p>
-    <p>We are not liable for loss or damage caused by a virus or other technologically harmful material that may infect your equipment through your use of this site.</p>
-
-    <h2>8. Linking</h2>
-    <p>You may link to our home page provided you do so in a way that is fair and legal, does not damage our reputation, and does not suggest any association or endorsement where none exists. You must not frame the site on any other website. We may withdraw linking permission at any time.</p>
-    <p>We are not responsible for the content of any website we link to, and any such link does not imply endorsement.</p>
-
-    <h2>9. Privacy and cookies</h2>
-    <p>We process personal data in accordance with our <a href="privacy.html">Privacy Notice</a>, which you should read. We use Google Analytics on this website, only if you accept it in the cookie banner shown on your first visit. See our <a href="cookies.html">Cookies Policy</a> for details and to change your choice at any time.</p>
-
-    <h2>10. Governing law and jurisdiction</h2>
-    <p>These terms and any dispute arising from them are governed by the law of England and Wales, and the courts of England and Wales have exclusive jurisdiction.</p>
-    <p><strong>If you are a consumer</strong> resident in Scotland or Northern Ireland, you may also bring proceedings in your home jurisdiction.</p>
+    <h2>Changes to this policy</h2>
+    <p>We may update this policy from time to time. When we do, we will change the “last updated” date at the top of the page.</p>
   </div>
 </main>
 
@@ -166,6 +161,7 @@ footer a{color:#5F7392;border:0}
     setConsent(v);
     var bar=document.getElementById('cookiebar');if(bar)bar.hidden=true;
     if(v==='accepted')loadGA();
+    refreshStatus();
   };
   window.vspxGetConsent=getConsent;
   var existing=getConsent();
@@ -180,6 +176,17 @@ footer a{color:#5F7392;border:0}
       if(r)r.addEventListener('click',function(){window.vspxSetConsent('rejected');});
     }
   }
+
+  function refreshStatus(){
+    var el=document.getElementById('choiceStatus');
+    if(!el)return;
+    var v=getConsent();
+    el.textContent = v==='accepted' ? 'Analytics accepted' : (v==='rejected' ? 'Analytics rejected' : 'No choice made yet');
+  }
+  refreshStatus();
+  var ca=document.getElementById('choiceAccept'),cr=document.getElementById('choiceReject');
+  if(ca)ca.addEventListener('click',function(){window.vspxSetConsent('accepted');});
+  if(cr)cr.addEventListener('click',function(){window.vspxSetConsent('rejected');});
 })();
 </script>
 
