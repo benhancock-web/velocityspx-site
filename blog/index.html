@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Blog — Sales progression insight for UK estate agencies | VelocitySPX</title>
+<meta name="description" content="Practical guides on sales progression, property chains and fall-throughs for UK estate agencies — from the team behind VelocitySPX.">
+<link rel="canonical" href="https://velocityspx.co.uk/blog/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://velocityspx.co.uk/blog/">
+<meta property="og:site_name" content="VelocitySPX">
+<meta property="og:title" content="Blog — Sales progression insight for UK estate agencies | VelocitySPX">
+<meta property="og:description" content="Practical guides on sales progression, property chains and fall-throughs for UK estate agencies.">
+<meta property="og:image" content="https://velocityspx.co.uk/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face{font-family:'Sora';src:url('../assets/fonts/sora-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Sora';src:url('../assets/fonts/sora-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Sora';src:url('../assets/fonts/sora-latin-700-normal.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Inter';src:url('../assets/fonts/inter-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Inter';src:url('../assets/fonts/inter-latin-500-normal.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Inter';src:url('../assets/fonts/inter-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
+:root{
+  --navy:#0B1F3A; --gold:#FAD201; --gold-deep:#906100;
+  --slate:#3A4859; --mute:#68788C; --line:#E3E8EF; --paper:#F7F8FA;
+  --display:'Sora',ui-sans-serif,system-ui,sans-serif;
+  --body:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  --grid-ink:rgba(11,31,58,.055);
+  --grid:linear-gradient(var(--grid-ink) 1px,transparent 1px),linear-gradient(90deg,var(--grid-ink) 1px,transparent 1px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);color:var(--slate);line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased;
+  background-color:#fff;background-image:var(--grid);background-size:38px 38px}
+a{color:var(--gold-deep);text-decoration:none;border-bottom:1px solid rgba(144,97,0,.3)}
+a:hover{border-bottom-color:var(--gold-deep)}
+h1,h2{font-family:var(--display);color:var(--navy);letter-spacing:-.028em;line-height:1.12;font-weight:700}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+header img{height:26px;display:block}
+header .home{font-family:var(--display);font-size:14px;font-weight:600;color:var(--navy);border:0}
+header .btn{font-family:var(--display);font-size:13.5px;font-weight:600;color:#fff;background:var(--navy);border:0;border-radius:9px;padding:9px 16px}
+header .btn:hover{background:#12294A}
+
+main{padding:56px 0 60px}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+.page-head{max-width:640px;margin-bottom:44px}
+.page-head h1{font-size:clamp(30px,5vw,42px);margin:12px 0 10px}
+.page-head p{font-size:18px;color:var(--slate)}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 1px 2px rgba(11,31,58,.06),0 1px 3px rgba(11,31,58,.04);display:flex;flex-direction:column}
+.card .tag{font-family:var(--display);font-weight:600;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px}
+.card h2{font-size:19px;margin:0 0 10px;line-height:1.3}
+.card h2 a{color:var(--navy);border:0}
+.card h2 a:hover{color:var(--gold-deep)}
+.card p{font-size:15px;color:var(--mute);margin:0 0 14px;flex:1}
+.card .meta{font-size:12.5px;color:var(--mute)}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#5F7392}
+footer img{height:22px;display:block}
+footer a{color:#5F7392;border:0}
+footer .links a{margin-left:16px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="home" href="../index.html" style="border:0"><img src="../assets/velocityspx-lockup-light.svg" alt="VelocitySPX"></a>
+    <a class="btn" href="../index.html#demo">Book a demo</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="page-head">
+      <span class="eyebrow">Blog</span>
+      <h1>Sales progression insight for UK estate agencies</h1>
+      <p>Practical guides on chains, exchanges and fall-throughs, written by the team building VelocitySPX.</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <span class="tag">Property chains</span>
+        <h2><a href="why-do-property-sales-fall-through.html">Why Do Property Sales Fall Through? The Real Reasons (and How to Prevent Them)</a></h2>
+        <p>Fall-throughs cost the industry hundreds of millions a year. Here's what actually causes them, and what a sales progression team can do about each one.</p>
+        <span class="meta">7 min read</span>
+      </div>
+
+      <div class="card">
+        <span class="tag">Getting started</span>
+        <h2><a href="sales-progression-vs-conveyancing.html">Sales Progression vs Conveyancing: What's the Difference?</a></h2>
+        <p>Two jobs people often confuse, doing two very different things to get a sale to completion. Where the line sits, and why it matters for your agency.</p>
+        <span class="meta">5 min read</span>
+      </div>
+
+      <div class="card">
+        <span class="tag">Property chains</span>
+        <h2><a href="offer-to-exchange-timeline-uk.html">How Long Does It Really Take From Offer to Exchange in the UK?</a></h2>
+        <p>The real, current data on UK conveyancing timelines — and the specific delays that push a straightforward sale past 100 days.</p>
+        <span class="meta">6 min read</span>
+      </div>
+
+      <div class="card">
+        <span class="tag">Running the team</span>
+        <h2><a href="in-house-vs-outsourced-sales-progression.html">In-House vs Outsourced Sales Progression: Which Is Right for Your Agency?</a></h2>
+        <p>Keeping progression in-house buys control and client relationship. Outsourcing buys capacity. How to weigh the two honestly.</p>
+        <span class="meta">6 min read</span>
+      </div>
+
+      <div class="card">
+        <span class="tag">Running the team</span>
+        <h2><a href="signs-youve-outgrown-spreadsheets.html">5 Signs Your Agency Has Outgrown Spreadsheets for Sales Progression</a></h2>
+        <p>A spreadsheet and a shared inbox work fine — until they don't. The five moments that tell you it's time for a dedicated system.</p>
+        <span class="meta">5 min read</span>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="../index.html" style="border:0"><img src="../assets/velocityspx-lockup-light.svg" alt="VelocitySPX"></a>
+    <span>© 2026 Momentum Sales Progression Limited, trading as VelocitySPX. All rights reserved.</span>
+  </div>
+</footer>
+</body>
+</html>
